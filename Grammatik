@@ -1,20 +1,304 @@
-🎓 DSD-Unterrichtsportal
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arbeitsblatt: Passiv und Passiversatzformen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
 
-📚 Grammatik
+        h1 {
+            text-align: center;
+            color: #1f4e79;
+        }
 
-   🧪 Passiv und Passiversatzformen
-   🎮 Relativsätze
-   🧠 Konjunktiv II
-   ✍️ Nominalisierung
+        h2 {
+            color: #2e75b6;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
 
-📖 Leseverstehen
+        h3 {
+            color: #444;
+        }
 
-🎧 Hörverstehen
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
 
-🎲 Escape Rooms
+        table, th, td {
+            border: 1px solid #999;
+        }
 
-🏆 DSD I
+        th {
+            background-color: #e9f2fb;
+        }
 
-🎓 DSD II
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
 
-👩‍🏫 Lehrkraft
+        .merke {
+            background-color: #f8f9fa;
+            border-left: 5px solid #2e75b6;
+            padding: 10px;
+            margin: 15px 0;
+        }
+
+        .exercise {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Arbeitsblatt: Passiv und Passiversatzformen</h1>
+
+<h2>1. Das Passiv</h2>
+
+<p>Im Passiv steht die <strong>Handlung</strong> im Mittelpunkt, nicht die Person, die handelt.</p>
+
+<h3>Aktiv</h3>
+<p>Der Mechaniker repariert das Auto.</p>
+
+<h3>Passiv</h3>
+<p>Das Auto <strong>wird repariert</strong>.</p>
+
+<p><strong>Bildung:</strong> werden + Partizip II</p>
+
+<h2>2. Passiv im Präsens</h2>
+
+<h3>Bildung</h3>
+<p>werden (im Präsens) + Partizip II</p>
+
+<table>
+    <tr>
+        <th>Aktiv</th>
+        <th>Passiv</th>
+    </tr>
+    <tr>
+        <td>Die Lehrerin erklärt die Regel.</td>
+        <td>Die Regel wird erklärt.</td>
+    </tr>
+    <tr>
+        <td>Die Schüler lösen die Aufgaben.</td>
+        <td>Die Aufgaben werden gelöst.</td>
+    </tr>
+</table>
+
+<h3>Beispiele</h3>
+<ul>
+    <li>Das Essen wird gekocht.</li>
+    <li>Die Fenster werden geputzt.</li>
+    <li>Die Hausaufgaben werden kontrolliert.</li>
+</ul>
+
+<h2>3. Passiv im Perfekt</h2>
+
+<h3>Bildung</h3>
+<p>sein + Partizip II + worden</p>
+
+<table>
+    <tr>
+        <th>Aktiv</th>
+        <th>Passiv</th>
+    </tr>
+    <tr>
+        <td>Die Firma hat das Gebäude gebaut.</td>
+        <td>Das Gebäude ist gebaut worden.</td>
+    </tr>
+    <tr>
+        <td>Der Arzt hat den Patienten untersucht.</td>
+        <td>Der Patient ist untersucht worden.</td>
+    </tr>
+</table>
+
+<h3>Beispiele</h3>
+<ul>
+    <li>Das Paket ist geliefert worden.</li>
+    <li>Die Rechnung ist bezahlt worden.</li>
+    <li>Die Tür ist geschlossen worden.</li>
+</ul>
+
+<h2>4. Passiv mit Modalverben</h2>
+
+<h3>Bildung</h3>
+<p>Modalverb + Partizip II + werden</p>
+
+<table>
+    <tr>
+        <th>Aktiv</th>
+        <th>Passiv</th>
+    </tr>
+    <tr>
+        <td>Man muss die Regeln beachten.</td>
+        <td>Die Regeln müssen beachtet werden.</td>
+    </tr>
+    <tr>
+        <td>Man kann das Problem lösen.</td>
+        <td>Das Problem kann gelöst werden.</td>
+    </tr>
+</table>
+
+<h3>Beispiele</h3>
+<ul>
+    <li>Die Arbeit muss erledigt werden.</li>
+    <li>Das Formular kann online ausgefüllt werden.</li>
+    <li>Die Bücher dürfen ausgeliehen werden.</li>
+</ul>
+
+<h2>5. Passiversatzformen</h2>
+
+<p>Passiversatzformen haben eine ähnliche Bedeutung wie das Passiv, werden aber anders gebildet.</p>
+
+<h3>A. sich lassen + Infinitiv</h3>
+
+<p><strong>Bedeutung:</strong> Etwas kann getan werden.</p>
+
+<ul>
+    <li>Das Problem lässt sich lösen.</li>
+    <li>Die Tür lässt sich öffnen.</li>
+    <li>Der Text lässt sich leicht verstehen.</li>
+</ul>
+
+<p><strong>Vergleich:</strong></p>
+<ul>
+    <li>Das Problem kann gelöst werden. (Passiv)</li>
+    <li>Das Problem lässt sich lösen. (Passiversatz)</li>
+</ul>
+
+<h3>B. sein + zu + Infinitiv</h3>
+
+<p><strong>Bedeutung:</strong> Etwas muss oder kann getan werden.</p>
+
+<ul>
+    <li>Die Aufgabe ist zu erledigen.</li>
+    <li>Der Brief ist zu schreiben.</li>
+    <li>Die Vorschriften sind zu beachten.</li>
+</ul>
+
+<p><strong>Vergleich:</strong></p>
+<ul>
+    <li>Die Vorschriften müssen beachtet werden.</li>
+    <li>Die Vorschriften sind zu beachten.</li>
+</ul>
+
+<h3>C. sein + Adjektiv auf -bar</h3>
+
+<p><strong>Bedeutung:</strong> Etwas kann getan werden.</p>
+
+<ul>
+    <li>Der Text ist lesbar.</li>
+    <li>Die Lösung ist denkbar.</li>
+    <li>Das Ziel ist erreichbar.</li>
+</ul>
+
+<p><strong>Vergleich:</strong></p>
+<ul>
+    <li>Der Text kann gelesen werden.</li>
+    <li>Der Text ist lesbar.</li>
+</ul>
+
+<h3>D. Zustandspassiv: sein + Partizip II</h3>
+
+<p>Beschreibt einen Zustand nach einer Handlung.</p>
+
+<ul>
+    <li>Die Tür ist geschlossen.</li>
+    <li>Das Fenster ist geöffnet.</li>
+    <li>Der Auftrag ist erledigt.</li>
+</ul>
+
+<p><strong>Vergleich:</strong></p>
+<ul>
+    <li>Die Tür wird geschlossen. (Vorgang)</li>
+    <li>Die Tür ist geschlossen. (Zustand)</li>
+</ul>
+
+<div class="merke">
+    <h2>Merke</h2>
+
+    <table>
+        <tr>
+            <th>Form</th>
+            <th>Beispiel</th>
+        </tr>
+        <tr>
+            <td>Passiv Präsens</td>
+            <td>Das Auto wird repariert.</td>
+        </tr>
+        <tr>
+            <td>Passiv Perfekt</td>
+            <td>Das Auto ist repariert worden.</td>
+        </tr>
+        <tr>
+            <td>Passiv mit Modalverb</td>
+            <td>Das Auto muss repariert werden.</td>
+        </tr>
+        <tr>
+            <td>sich lassen + Infinitiv</td>
+            <td>Das Auto lässt sich reparieren.</td>
+        </tr>
+        <tr>
+            <td>sein + zu + Infinitiv</td>
+            <td>Das Auto ist zu reparieren.</td>
+        </tr>
+        <tr>
+            <td>sein + -bar</td>
+            <td>Das Auto ist reparierbar.</td>
+        </tr>
+        <tr>
+            <td>Zustandspassiv</td>
+            <td>Das Auto ist repariert.</td>
+        </tr>
+    </table>
+</div>
+
+<div class="exercise">
+    <h2>Übungen</h2>
+
+    <h3>1. Bilde das Passiv im Präsens.</h3>
+    <ol>
+        <li>Der Hausmeister öffnet die Tür.</li>
+        <li>Die Firma produziert Computer.</li>
+        <li>Die Schüler schreiben den Test.</li>
+    </ol>
+
+    <h3>2. Bilde das Passiv im Perfekt.</h3>
+    <ol>
+        <li>Der Koch hat das Essen vorbereitet.</li>
+        <li>Die Lehrerin hat die Arbeiten korrigiert.</li>
+        <li>Die Post hat das Paket geliefert.</li>
+    </ol>
+
+    <h3>3. Formuliere mit einer Passiversatzform um.</h3>
+    <ol>
+        <li>Das Problem kann gelöst werden.</li>
+        <li>Die Regeln müssen beachtet werden.</li>
+        <li>Die Tür kann geöffnet werden.</li>
+    </ol>
+
+    <h3>4. Entscheide: Passiv oder Passiversatzform?</h3>
+    <ol>
+        <li>Das Buch lässt sich leicht lesen.</li>
+        <li>Die Fenster werden geputzt.</li>
+        <li>Die Aufgabe ist zu erledigen.</li>
+        <li>Der Brief ist geschrieben worden.</li>
+    </ol>
+</div>
+
+</body>
+</html>
