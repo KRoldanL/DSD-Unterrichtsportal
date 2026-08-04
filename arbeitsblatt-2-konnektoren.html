@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arbeitsblatt 2 – Konnektoren</title>
+<style>
+:root {
+  --primary: #1F4E78;
+  --accent: #2E7D32;
+  --light: #EAF1F8;
+  --lightAccent: #EAF5EA;
+  --border: #BFBFBF;
+  --text: #222;
+  --ok: #2E7D32;
+  --ok-bg: #EAF5EA;
+  --bad: #C0392B;
+  --bad-bg: #FBEAE8;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: "Segoe UI", "Calibri", Arial, sans-serif;
+  color: var(--text);
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 24px 80px;
+  line-height: 1.5;
+  background: #fff;
+}
+h1 { color: var(--primary); font-size: 2rem; margin-bottom: 4px; }
+.subtitle { font-style: italic; color: #555; border-bottom: 3px solid var(--primary); padding-bottom: 14px; margin-bottom: 20px; }
+.meta { display: flex; flex-wrap: wrap; gap: 24px; margin-bottom: 26px; font-size: 0.95rem; }
+.meta label { font-weight: 600; margin-right: 6px; }
+.meta input[type=text] { border: none; border-bottom: 1px solid #999; background: transparent; padding: 2px 4px; min-width: 160px; font-size: 0.95rem; }
+#score-bar {
+  display: none;
+  background: #FFF9E6; border: 1.5px solid #E0B400; border-radius: 6px;
+  padding: 10px 14px; margin-bottom: 20px; font-weight: 600; font-size: 0.95rem;
+}
+h2.section {
+  background: var(--light);
+  color: var(--primary);
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  margin-top: 34px;
+  margin-bottom: 10px;
+}
+.instr { font-style: italic; color: #444; margin-bottom: 14px; }
+.box {
+  background: var(--light);
+  border: 1.5px solid var(--primary);
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+}
+.box.accent { background: var(--lightAccent); border-color: var(--accent); }
+.box p { margin: 4px 0; }
+.box p.title { font-weight: 700; margin-bottom: 8px; }
+table { border-collapse: collapse; width: 100%; margin-bottom: 18px; font-size: 0.95rem; }
+th, td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+th { background: var(--primary); color: #fff; }
+.item { margin-bottom: 14px; }
+.item .q { font-weight: 500; }
+.item .q b { margin-right: 4px; }
+input.blank {
+  border: none;
+  border-bottom: 1.5px solid #999;
+  background: transparent;
+  padding: 3px 4px;
+  font-size: 1rem;
+  font-family: inherit;
+  min-width: 90px;
+}
+input.blank.correct { border-bottom: 2px solid var(--ok); background: var(--ok-bg); color: var(--ok); font-weight: 600; }
+input.blank.incorrect { border-bottom: 2px solid var(--bad); background: var(--bad-bg); color: var(--bad); font-weight: 600; }
+input.fill-line {
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1.5px solid #999;
+  background: transparent;
+  padding: 6px 4px;
+  font-size: 1rem;
+  font-family: inherit;
+  margin-top: 4px;
+}
+textarea {
+  width: 100%;
+  border: 1.5px solid var(--border);
+  border-radius: 4px;
+  padding: 10px;
+  font-family: inherit;
+  font-size: 1rem;
+  resize: vertical;
+  margin-top: 4px;
+}
+.checklist label { display: block; margin-bottom: 6px; cursor: pointer; }
+label.radio-opt { margin-right: 16px; padding: 3px 6px; border-radius: 4px; border: 1.5px solid transparent; }
+label.radio-opt.correct { border-color: var(--ok); background: var(--ok-bg); color: var(--ok); font-weight: 600; }
+label.radio-opt.incorrect { border-color: var(--bad); background: var(--bad-bg); color: var(--bad); font-weight: 600; }
+details.model { margin: 6px 0 0; font-size: 0.9rem; }
+details.model summary { cursor: pointer; color: var(--primary); }
+details.model .sol { margin-top: 6px; padding: 8px 10px; background: var(--lightAccent); border-radius: 4px; }
+.check-toolbar { text-align: right; margin: 18px 0 6px; }
+.check-toolbar button {
+  background: var(--primary); color: #fff; border: none; padding: 8px 16px;
+  border-radius: 4px; cursor: pointer; font-size: 0.9rem; margin-left: 8px;
+}
+.check-toolbar button.check { background: var(--accent); }
+.check-toolbar button:hover { opacity: 0.9; }
+.footer { margin-top: 50px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 0.8rem; color: #888; font-style: italic; }
+.page-nav { display: flex; justify-content: space-between; margin-top: 26px; font-size: 0.9rem; }
+.page-nav a { color: var(--primary); text-decoration: none; font-weight: 600; }
+.page-nav a:hover { text-decoration: underline; }
+@media print {
+  .check-toolbar, #score-bar { display: none; }
+  body { padding: 0; }
+  input.blank, input.fill-line { border-bottom: 1px solid #000; }
+}
+</style>
+</head>
+<body>
+<h1>Arbeitsblatt 2 – Konnektoren</h1>
+<p class="subtitle">weil, da, dass, wenn, obwohl, während, trotzdem, wegen, trotz | Niveau A2/A2-B1</p>
+<div class="meta">
+  <div><label>Name:</label><input type="text" id="student-name" class="fill-line" style="display:inline;width:200px;" placeholder="Pflichtfeld für Überprüfung"></div>
+  <div><label>Klasse:</label><input type="text" id="student-klasse" class="fill-line" style="display:inline;width:120px;"></div>
+  <div><label>Datum:</label><input type="text" class="fill-line" style="display:inline;width:120px;"></div>
+</div>
+<div id="score-bar"></div>
+<div class="box"><p class="title">Nebensatzkonnektoren (Verb am Satzende): weil, da, dass, wenn, obwohl, während</p>
+<p>Präpositionen + Nomen (Kasus: Genitiv/Dativ): wegen, trotz</p>
+<p>Adverb (Position 1 oder im Mittelfeld, danach Verb): trotzdem</p></div><table><thead><tr><th>Konnektor</th><th>Typ</th><th>Beispiel</th></tr></thead><tbody><tr><td>weil / da</td><td>Nebensatz (Grund)</td><td>Ich bleibe zu Hause, weil ich krank bin.</td></tr>
+<tr><td>dass</td><td>Nebensatz (Inhalt)</td><td>Ich glaube, dass er recht hat.</td></tr>
+<tr><td>wenn</td><td>Nebensatz (Bedingung/Zeit)</td><td>Wenn es regnet, bleibe ich zu Hause.</td></tr>
+<tr><td>obwohl</td><td>Nebensatz (Gegengrund)</td><td>Obwohl es regnet, gehe ich raus.</td></tr>
+<tr><td>während</td><td>Nebensatz (Gleichzeitigkeit)</td><td>Während ich koche, hört sie Musik.</td></tr>
+<tr><td>wegen + Genitiv/Dativ</td><td>Präposition (Grund)</td><td>Wegen des Regens bleibe ich zu Hause.</td></tr>
+<tr><td>trotz + Genitiv/Dativ</td><td>Präposition (Gegengrund)</td><td>Trotz des Regens gehe ich raus.</td></tr>
+<tr><td>trotzdem</td><td>Adverb</td><td>Es regnet. Trotzdem gehe ich raus.</td></tr></tbody></table><h2 class="section">Übung 1: Konnektoren zuordnen</h2><p class="instr">Ordne den passenden Konnektor zu: weil – da – dass – wenn – obwohl – während – trotzdem – wegen – trotz</p><div class="item"><p class="q"><b>1.</b>Ich denke, <input type="text" class="blank" style="width:110px;" data-ans="dass"> Deutsch nicht so schwer ist.</p></div><div class="item"><p class="q"><b>2.</b><input type="text" class="blank" style="width:110px;" data-ans="wenn"> es kalt ist, ziehe ich eine Jacke an.</p></div><div class="item"><p class="q"><b>3.</b>Er kommt zu spät, <input type="text" class="blank" style="width:110px;" data-ans="weil|da"> der Bus Verspätung hatte.</p></div><div class="item"><p class="q"><b>4.</b><input type="text" class="blank" style="width:110px;" data-ans="wegen"> des schlechten Wetters findet das Fest im Saal statt.</p></div><div class="item"><p class="q"><b>5.</b>Sie lächelt, <input type="text" class="blank" style="width:110px;" data-ans="obwohl"> sie traurig ist.</p></div><div class="item"><p class="q"><b>6.</b><input type="text" class="blank" style="width:110px;" data-ans="während"> die Kinder spielen, kochen die Eltern.</p></div><div class="item"><p class="q"><b>7.</b><input type="text" class="blank" style="width:110px;" data-ans="obwohl"> er viel lernt, hat er die Prüfung nicht bestanden.</p></div><div class="item"><p class="q"><b>8.</b>Ich habe keine Zeit. <input type="text" class="blank" style="width:110px;" data-ans="trotzdem"> helfe ich dir kurz.</p></div><div class="item"><p class="q"><b>9.</b><input type="text" class="blank" style="width:110px;" data-ans="weil|da"> ich müde bin, gehe ich früh ins Bett.</p></div><h2 class="section">Übung 2: Nebensatz oder Präposition?</h2><p class="instr">Kreuze an: Steht in der Lücke ein Nebensatzkonnektor (+ Verb am Ende) oder eine Präposition (+ Nomen)? Ergänze passend mit wegen/trotz oder weil/obwohl.</p><div class="item"><p class="q"><b>1.</b> <input type="text" class="blank" style="width:110px;" data-ans="wegen"> des starken Regens verschieben wir das Fußballspiel.</p><label class="radio-opt"><input type="radio" name="np0" data-correct="true"> Präposition</label><label class="radio-opt"><input type="radio" name="np0"> Nebensatz</label></div><div class="item"><p class="q"><b>2.</b> <input type="text" class="blank" style="width:110px;" data-ans="weil"> es stark regnet, verschieben wir das Fußballspiel.</p><label class="radio-opt"><input type="radio" name="np1"> Präposition</label><label class="radio-opt"><input type="radio" name="np1" data-correct="true"> Nebensatz</label></div><div class="item"><p class="q"><b>3.</b> <input type="text" class="blank" style="width:110px;" data-ans="trotz"> ihrer Erkältung geht Lisa trotzdem zur Schule.</p><label class="radio-opt"><input type="radio" name="np2" data-correct="true"> Präposition</label><label class="radio-opt"><input type="radio" name="np2"> Nebensatz</label></div><div class="item"><p class="q"><b>4.</b> <input type="text" class="blank" style="width:110px;" data-ans="obwohl"> sie erkältet ist, geht Lisa trotzdem zur Schule.</p><label class="radio-opt"><input type="radio" name="np3"> Präposition</label><label class="radio-opt"><input type="radio" name="np3" data-correct="true"> Nebensatz</label></div><h2 class="section">Übung 3: Lückentext</h2><p class="instr">Ergänze den Text mit passenden Konnektoren aus dem Kasten: weil – dass – wenn – obwohl – trotzdem – während</p><div class="item"><p><b>Mein Wochenende</b><br>Am Samstag bin ich lange im Bett geblieben, <input type="text" class="blank" style="width:90px;" data-ans="weil|da"> (1) ich sehr müde war. Meine Eltern finden, <input type="text" class="blank" style="width:90px;" data-ans="dass"> (2) das nicht gut ist, aber <input type="text" class="blank" style="width:90px;" data-ans="weil|da"> (3) ich am Wochenende ausschlafen will, stehe ich meistens spät auf. <input type="text" class="blank" style="width:90px;" data-ans="während"> (4) ich frühstücke, lese ich immer die Nachrichten auf dem Handy. Am Nachmittag wollte ich Fußball spielen, <input type="text" class="blank" style="width:90px;" data-ans="obwohl"> (5) es regnete. <input type="text" class="blank" style="width:90px;" data-ans="trotzdem"> (6) habe ich mit Freunden im Park gespielt, weil wir Regenjacken dabei hatten.</p></div><h2 class="section">Übung 4: Satzpaare verbinden</h2><p class="instr">Verbinde die zwei Sätze mit dem angegebenen Konnektor. Vergleiche danach mit der Musterlösung.</p><div class="item"><p class="q"><b>1.</b>Ich bin müde. Ich habe wenig geschlafen. (weil)</p><input type="text" class="fill-line"><details class="model"><summary>Musterlösung anzeigen</summary><div class="sol">Ich bin müde, weil ich wenig geschlafen habe.</div></details></div><div class="item"><p class="q"><b>2.</b>Es regnet stark. Wir gehen trotzdem spazieren. (obwohl)</p><input type="text" class="fill-line"><details class="model"><summary>Musterlösung anzeigen</summary><div class="sol">Obwohl es stark regnet, gehen wir spazieren.</div></details></div><div class="item"><p class="q"><b>3.</b>Ich habe keine Zeit. Ich rufe dich kurz an. (trotzdem)</p><input type="text" class="fill-line"><details class="model"><summary>Musterlösung anzeigen</summary><div class="sol">Ich habe keine Zeit. Trotzdem rufe ich dich kurz an.</div></details></div><div class="item"><p class="q"><b>4.</b>Ich koche das Abendessen. Meine Schwester deckt den Tisch. (während)</p><input type="text" class="fill-line"><details class="model"><summary>Musterlösung anzeigen</summary><div class="sol">Während ich das Abendessen koche, deckt meine Schwester den Tisch.</div></details></div><div class="item"><p class="q"><b>5.</b>Du lernst fleißig. Du bestehst die Prüfung. (wenn)</p><input type="text" class="fill-line"><details class="model"><summary>Musterlösung anzeigen</summary><div class="sol">Wenn du fleißig lernst, bestehst du die Prüfung.</div></details></div><div class="item"><p class="q"><b>6.</b>Ich glaube etwas. Deutsch lernen macht Spaß. (dass)</p><input type="text" class="fill-line"><details class="model"><summary>Musterlösung anzeigen</summary><div class="sol">Ich glaube, dass Deutsch lernen Spaß macht.</div></details></div><h2 class="section">Übung 5: Fehler verbessern</h2><p class="instr">In jedem Satz ist ein Fehler (Wortstellung oder falscher Konnektor). Schreibe den Satz richtig.</p><div class="item"><p class="q"><b>1.</b> Ich bleibe zu Hause, weil ich bin krank.</p><input type="text" class="blank" style="width:100%;display:block;" data-ans="Ich bleibe zu Hause, weil ich krank bin."></div><div class="item"><p class="q"><b>2.</b> Wegen ich krank bin, bleibe ich zu Hause.</p><input type="text" class="blank" style="width:100%;display:block;" data-ans="Weil ich krank bin, bleibe ich zu Hause."></div><div class="item"><p class="q"><b>3.</b> Obwohl es regnet stark, gehe ich raus.</p><input type="text" class="blank" style="width:100%;display:block;" data-ans="Obwohl es stark regnet, gehe ich raus."></div><div class="item"><p class="q"><b>4.</b> Trotz des Regens, ich gehe trotzdem raus.</p><input type="text" class="blank" style="width:100%;display:block;" data-ans="Trotz des Regens gehe ich raus."></div><h2 class="section">Übung 6: DSD-Formulierungen ergänzen</h2><p class="instr">Diese Satzanfänge helfen dir beim Leserbrief. Ergänze die Sätze mit deiner eigenen Meinung (frei, wird von der Lehrperson korrigiert).</p><div class="item"><p class="q">Ich bin der Meinung, dass …</p><input type="text" class="fill-line"></div><div class="item"><p class="q">Meiner Meinung nach … , weil …</p><input type="text" class="fill-line"></div><div class="item"><p class="q">Obwohl viele Leute anderer Meinung sind, denke ich, dass …</p><input type="text" class="fill-line"></div><div class="item"><p class="q">Trotzdem finde ich es wichtig, dass …</p><input type="text" class="fill-line"></div><h2 class="section">Übung 7: Mini-Leserbrief</h2><p class="instr">Schreibe einen kurzen Leserbrief (5–6 Sätze) zum Thema „Sollen Handys in der Schule erlaubt sein?“. Benutze mindestens 4 verschiedene Konnektoren aus diesem Arbeitsblatt. (Frei, wird von der Lehrperson korrigiert.)</p><textarea rows="7"></textarea>
+<div class="check-toolbar">
+  <button onclick="window.print()">🖨️ Drucken / PDF</button>
+  <button class="check" onclick="checkAnswers('Arbeitsblatt 2 – Konnektoren')">✅ Antworten überprüfen</button>
+</div>
+<div class="page-nav">
+    <span><a href="arbeitsblatt-1-satzbau-tekamolo.html">← Satzbau &amp; TeKaMoLo</a></span>
+    <span><a href="arbeitsblatt-3-inversion.html">Inversion →</a></span>
+  </div>
+<p class="footer">Deutsch als Fremdsprache – Konnektoren – Arbeitsblatt 2/6</p>
+<script>
+const GOOGLE_SCRIPT_URL = "PASTE_DEINE_GOOGLE_APPS_SCRIPT_URL_HIER";
+
+function checkAnswers(worksheetName) {
+  let correct = 0, total = 0;
+
+  document.querySelectorAll("input.blank[data-ans]").forEach((inp) => {
+    total++;
+    const accepted = inp.dataset.ans.split("|").map((a) => normalize(a));
+    const val = normalize(inp.value);
+    inp.classList.remove("correct", "incorrect");
+    if (val && accepted.includes(val)) { inp.classList.add("correct"); correct++; }
+    else { inp.classList.add("incorrect"); }
+  });
+
+  const groups = {};
+  document.querySelectorAll('input[type="radio"][name]').forEach((r) => {
+    (groups[r.name] = groups[r.name] || []).push(r);
+  });
+  Object.values(groups).forEach((group) => {
+    const correctRadio = group.find((r) => r.dataset.correct === "true");
+    if (!correctRadio) return;
+    total++;
+    group.forEach((r) => r.parentElement.classList.remove("correct", "incorrect"));
+    const chosen = group.find((r) => r.checked);
+    if (chosen === correctRadio) { correctRadio.parentElement.classList.add("correct"); correct++; }
+    else if (chosen) { chosen.parentElement.classList.add("incorrect"); }
+  });
+
+  const bar = document.getElementById("score-bar");
+  if (bar) {
+    bar.style.display = "block";
+    bar.textContent = total > 0
+      ? `Ergebnis: ${correct} von ${total} automatisch prüfbaren Aufgaben richtig. (Offene Schreibaufgaben bitte mit den Musterlösungen vergleichen oder von der Lehrperson korrigieren lassen.)`
+      : `Diese Übungen sind offene Schreibaufgaben – nutze die Musterlösungen zum Vergleichen.`;
+    bar.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  const nameInput = document.getElementById("student-name");
+  const klasseInput = document.getElementById("student-klasse");
+  const name = nameInput ? nameInput.value.trim() : "";
+  const klasse = klasseInput ? klasseInput.value.trim() : "";
+
+  if (!name) {
+    alert("Bitte trage zuerst deinen Namen ein, bevor du überprüfst.");
+    if (nameInput) nameInput.focus();
+    return;
+  }
+
+  sendToSheet({ name, klasse, worksheet: worksheetName, correct, total, timestamp: new Date().toISOString() });
+}
+
+function normalize(s) {
+  return String(s).trim().toLowerCase().replace(/\s+/g, " ").replace(/[.,;!?]+$/, "");
+}
+
+function sendToSheet(data) {
+  if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.indexOf("PASTE_DEINE") !== -1) {
+    console.warn("Google-Sheet-URL nicht konfiguriert – Ergebnis wird nur lokal angezeigt.");
+    return;
+  }
+  fetch(GOOGLE_SCRIPT_URL, {
+    method: "POST", mode: "no-cors",
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    body: JSON.stringify(data),
+  }).catch((err) => console.error("Fehler beim Speichern im Google Sheet:", err));
+}
+</script>
+</body>
+</html>

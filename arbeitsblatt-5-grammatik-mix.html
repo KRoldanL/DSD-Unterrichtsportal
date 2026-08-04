@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arbeitsblatt 5 – Grammatik-Mix</title>
+<style>
+:root {
+  --primary: #1F4E78;
+  --accent: #2E7D32;
+  --light: #EAF1F8;
+  --lightAccent: #EAF5EA;
+  --border: #BFBFBF;
+  --text: #222;
+  --ok: #2E7D32;
+  --ok-bg: #EAF5EA;
+  --bad: #C0392B;
+  --bad-bg: #FBEAE8;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: "Segoe UI", "Calibri", Arial, sans-serif;
+  color: var(--text);
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 24px 80px;
+  line-height: 1.5;
+  background: #fff;
+}
+h1 { color: var(--primary); font-size: 2rem; margin-bottom: 4px; }
+.subtitle { font-style: italic; color: #555; border-bottom: 3px solid var(--primary); padding-bottom: 14px; margin-bottom: 20px; }
+.meta { display: flex; flex-wrap: wrap; gap: 24px; margin-bottom: 26px; font-size: 0.95rem; }
+.meta label { font-weight: 600; margin-right: 6px; }
+.meta input[type=text] { border: none; border-bottom: 1px solid #999; background: transparent; padding: 2px 4px; min-width: 160px; font-size: 0.95rem; }
+#score-bar {
+  display: none;
+  background: #FFF9E6; border: 1.5px solid #E0B400; border-radius: 6px;
+  padding: 10px 14px; margin-bottom: 20px; font-weight: 600; font-size: 0.95rem;
+}
+h2.section {
+  background: var(--light);
+  color: var(--primary);
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  margin-top: 34px;
+  margin-bottom: 10px;
+}
+.instr { font-style: italic; color: #444; margin-bottom: 14px; }
+.box {
+  background: var(--light);
+  border: 1.5px solid var(--primary);
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+}
+.box.accent { background: var(--lightAccent); border-color: var(--accent); }
+.box p { margin: 4px 0; }
+.box p.title { font-weight: 700; margin-bottom: 8px; }
+table { border-collapse: collapse; width: 100%; margin-bottom: 18px; font-size: 0.95rem; }
+th, td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+th { background: var(--primary); color: #fff; }
+.item { margin-bottom: 14px; }
+.item .q { font-weight: 500; }
+.item .q b { margin-right: 4px; }
+input.blank {
+  border: none;
+  border-bottom: 1.5px solid #999;
+  background: transparent;
+  padding: 3px 4px;
+  font-size: 1rem;
+  font-family: inherit;
+  min-width: 90px;
+}
+input.blank.correct { border-bottom: 2px solid var(--ok); background: var(--ok-bg); color: var(--ok); font-weight: 600; }
+input.blank.incorrect { border-bottom: 2px solid var(--bad); background: var(--bad-bg); color: var(--bad); font-weight: 600; }
+input.fill-line {
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1.5px solid #999;
+  background: transparent;
+  padding: 6px 4px;
+  font-size: 1rem;
+  font-family: inherit;
+  margin-top: 4px;
+}
+textarea {
+  width: 100%;
+  border: 1.5px solid var(--border);
+  border-radius: 4px;
+  padding: 10px;
+  font-family: inherit;
+  font-size: 1rem;
+  resize: vertical;
+  margin-top: 4px;
+}
+.checklist label { display: block; margin-bottom: 6px; cursor: pointer; }
+label.radio-opt { margin-right: 16px; padding: 3px 6px; border-radius: 4px; border: 1.5px solid transparent; }
+label.radio-opt.correct { border-color: var(--ok); background: var(--ok-bg); color: var(--ok); font-weight: 600; }
+label.radio-opt.incorrect { border-color: var(--bad); background: var(--bad-bg); color: var(--bad); font-weight: 600; }
+details.model { margin: 6px 0 0; font-size: 0.9rem; }
+details.model summary { cursor: pointer; color: var(--primary); }
+details.model .sol { margin-top: 6px; padding: 8px 10px; background: var(--lightAccent); border-radius: 4px; }
+.check-toolbar { text-align: right; margin: 18px 0 6px; }
+.check-toolbar button {
+  background: var(--primary); color: #fff; border: none; padding: 8px 16px;
+  border-radius: 4px; cursor: pointer; font-size: 0.9rem; margin-left: 8px;
+}
+.check-toolbar button.check { background: var(--accent); }
+.check-toolbar button:hover { opacity: 0.9; }
+.footer { margin-top: 50px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 0.8rem; color: #888; font-style: italic; }
+.page-nav { display: flex; justify-content: space-between; margin-top: 26px; font-size: 0.9rem; }
+.page-nav a { color: var(--primary); text-decoration: none; font-weight: 600; }
+.page-nav a:hover { text-decoration: underline; }
+@media print {
+  .check-toolbar, #score-bar { display: none; }
+  body { padding: 0; }
+  input.blank, input.fill-line { border-bottom: 1px solid #000; }
+}
+</style>
+</head>
+<body>
+<h1>Arbeitsblatt 5 – Grammatik-Mix</h1>
+<p class="subtitle">Alle Themen kombiniert: Satzbau, TeKaMoLo, Konnektoren, Inversion, Zeitformen</p>
+<div class="meta">
+  <div><label>Name:</label><input type="text" id="student-name" class="fill-line" style="display:inline;width:200px;" placeholder="Pflichtfeld für Überprüfung"></div>
+  <div><label>Klasse:</label><input type="text" id="student-klasse" class="fill-line" style="display:inline;width:120px;"></div>
+  <div><label>Datum:</label><input type="text" class="fill-line" style="display:inline;width:120px;"></div>
+</div>
+<div id="score-bar"></div>
+<h2 class="section">Übung 1: Escape-Room-Aufgaben</h2><p class="instr">Löse die 4 Codeaufgaben nacheinander. Jede richtige Antwort ergibt einen Buchstaben. Setze am Ende alle Buchstaben zum Lösungswort zusammen!</p><div class="item"><p class="q"><b>1.</b> Aufgabe A: Bilde einen korrekten Satz aus: heute / ich / gehe / ins Kino. Beginnt der richtige Satz mit „Heute“? (J/N)</p><p>Antwort: <input type="text" class="blank" style="width:100px;" data-ans="J"></p></div><div class="item"><p class="q"><b>2.</b> Aufgabe B: Welches Wort passt? „___ es regnet, bleibe ich zu Hause.“ (weil / wenn / dass)</p><p>Antwort: <input type="text" class="blank" style="width:100px;" data-ans="wenn"></p></div><div class="item"><p class="q"><b>3.</b> Aufgabe C: Wie heißt das Partizip II von „gehen“?</p><p>Antwort: <input type="text" class="blank" style="width:100px;" data-ans="gegangen"></p></div><div class="item"><p class="q"><b>4.</b> Aufgabe D: „Deshalb ___ sie heute zu Hause.“ Welches Verb passt? (bleibt / bleiben)</p><p>Antwort: <input type="text" class="blank" style="width:100px;" data-ans="bleibt"></p></div><p><b>Lösungswort:</b> <input type="text" class="blank" style="width:120px;" data-ans="SCHL"> <span style="color:#666;font-size:0.85rem;">(Tipp: ein Wort, das man beim Grammatiklernen oft ruft!)</span></p><h2 class="section">Übung 2: Grammatik-Bingo</h2><p class="instr">Fülle die Bingo-Felder mit eigenen Beispielsätzen zu den genannten Themen. Wer zuerst eine Reihe fertig hat, ruft „Bingo!“ (Frei, wird nicht automatisch geprüft.)</p><table><tbody><tr><td style="width:33%;"><b>Satz mit weil</b><br><input type="text" class="fill-line" style="margin-top:8px;"></td><td style="width:33%;"><b>Satz mit Perfekt</b><br><input type="text" class="fill-line" style="margin-top:8px;"></td><td style="width:33%;"><b>Satz mit Inversion</b><br><input type="text" class="fill-line" style="margin-top:8px;"></td></tr><tr><td style="width:33%;"><b>Satz mit Futur I</b><br><input type="text" class="fill-line" style="margin-top:8px;"></td><td style="width:33%;"><b>Freifeld ☺</b><br><input type="text" class="fill-line" style="margin-top:8px;"></td><td style="width:33%;"><b>Satz mit trotzdem</b><br><input type="text" class="fill-line" style="margin-top:8px;"></td></tr><tr><td style="width:33%;"><b>Satz mit TeKaMoLo (2 Angaben)</b><br><input type="text" class="fill-line" style="margin-top:8px;"></td><td style="width:33%;"><b>Satz mit Konjunktiv II</b><br><input type="text" class="fill-line" style="margin-top:8px;"></td><td style="width:33%;"><b>Satz mit obwohl</b><br><input type="text" class="fill-line" style="margin-top:8px;"></td></tr></tbody></table><h2 class="section">Übung 3: Satzlotto</h2><p class="instr">Würfle (oder wähle zufällig) eine Zahl von 1–6 für jede Spalte und bilde daraus einen Satz. Schreibe zwei Beispielsätze auf. (Frei, wird nicht automatisch geprüft.)</p><table><thead><tr><th>Zahl</th><th>Satzanfang (Position 1)</th><th>Verb</th><th>Rest</th></tr></thead><tbody><tr><td>1</td><td>Heute</td><td>gehe</td><td>ich einkaufen.</td></tr>
+<tr><td>2</td><td>Wegen des Wetters</td><td>bleiben</td><td>wir zu Hause.</td></tr>
+<tr><td>3</td><td>Trotzdem</td><td>spielt</td><td>er Fußball.</td></tr>
+<tr><td>4</td><td>Meine Freunde</td><td>haben</td><td>gestern gefeiert.</td></tr>
+<tr><td>5</td><td>Nächstes Jahr</td><td>werde</td><td>ich reisen.</td></tr>
+<tr><td>6</td><td>Deshalb</td><td>lerne</td><td>ich fleißig.</td></tr></tbody></table><p>Satz 1: <input type="text" class="fill-line"></p><p>Satz 2: <input type="text" class="fill-line"></p><h2 class="section">Übung 4: Domino</h2><p class="instr">Verbinde Satzanfang und Satzende so, dass grammatisch korrekte Sätze entstehen.</p><table><thead><tr><th>Satzanfang</th><th></th><th>Satzende</th></tr></thead><tbody><tr><td>A. Weil ich krank war,</td><td>→</td><td>1. bin ich gestern zu Hause geblieben.</td></tr>
+<tr><td>B. Nächstes Wochenende</td><td>→</td><td>2. werden wir ans Meer fahren.</td></tr>
+<tr><td>C. Obwohl es kalt war,</td><td>→</td><td>3. sind wir spazieren gegangen.</td></tr>
+<tr><td>D. Wenn ich Zeit hätte,</td><td>→</td><td>4. würde ich mehr lesen.</td></tr></tbody></table><p>Lösung: A-<input type="text" class="blank" style="width:40px;" data-ans="1"> B-<input type="text" class="blank" style="width:40px;" data-ans="2"> C-<input type="text" class="blank" style="width:40px;" data-ans="3"> D-<input type="text" class="blank" style="width:40px;" data-ans="4"></p><h2 class="section">Übung 5: Partnerdiktat</h2><p class="instr">Arbeitet zu zweit. Partner A liest Text 1 langsam vor, Partner B schreibt mit. Dann wechselt ihr. Vergleicht am Ende eure Texte.</p><div class="box"><p class="title">Text 1 (für Partner A zum Vorlesen):</p>
+<p>Am Wochenende fahre ich mit meiner Familie ans Meer, weil das Wetter schön ist. Obwohl die Fahrt lang ist, freuen wir uns sehr. Danach werden wir dort schwimmen und picknicken.</p></div><div class="box accent"><p class="title">Text 2 (für Partner B zum Vorlesen):</p>
+<p>Gestern habe ich meine Hausaufgaben gemacht, während meine Schwester Klavier gespielt hat. Trotzdem war ich noch müde. Wenn ich mehr Zeit hätte, würde ich früher schlafen gehen.</p></div><p><b>Mitschrift Partner A (Text 2):</b></p><textarea rows="3"></textarea><p><b>Mitschrift Partner B (Text 1):</b></p><textarea rows="3"></textarea><h2 class="section">Übung 6: Fehlertext</h2><p class="instr">Im folgenden Text gibt es 6 Fehler (Wortstellung, Konnektoren oder Zeitformen). Finde und korrigiere sie. Schreibe den ganzen Text richtig auf und vergleiche mit der Musterlösung.</p><div class="box"><p class="title">Letztes Wochenende ich bin mit meiner Familie in die Berge gefahren. Weil das Wetter war schön, wir haben einen langen Spaziergang gemacht. Trotzdem wir waren müde, wir sind noch schwimmen gegangen. Nächstes Jahr wir werden wieder fahren, weil es hat uns sehr gefallt.</p></div><textarea rows="5"></textarea><details class="model"><summary>Musterlösung anzeigen</summary><div class="sol">Letztes Wochenende bin ich mit meiner Familie in die Berge gefahren. Weil das Wetter schön war, haben wir einen langen Spaziergang gemacht. Obwohl wir müde waren, sind wir noch schwimmen gegangen. Nächstes Jahr werden wir wieder fahren, weil es uns sehr gefallen hat.</div></details><h2 class="section">Übung 7: Schreibtraining</h2><p class="instr">Schreibe einen kurzen Text (6–8 Sätze) über deine letzten Ferien. Benutze mindestens: eine Zeitangabe an Position 1, einen Konnektor (weil/obwohl/wenn), das Perfekt UND das Futur I. (Frei, wird von der Lehrperson korrigiert.)</p><textarea rows="8"></textarea>
+<div class="check-toolbar">
+  <button onclick="window.print()">🖨️ Drucken / PDF</button>
+  <button class="check" onclick="checkAnswers('Arbeitsblatt 5 – Grammatik-Mix')">✅ Antworten überprüfen</button>
+</div>
+<div class="page-nav">
+    <span><a href="arbeitsblatt-4-zeitformen.html">← Zeitformen</a></span>
+    <span><a href="arbeitsblatt-6-dsd-i-schreibtraining.html">DSD-I-Schreibtraining →</a></span>
+  </div>
+<p class="footer">Deutsch als Fremdsprache – Grammatik-Mix – Arbeitsblatt 5/6</p>
+<script>
+const GOOGLE_SCRIPT_URL = "PASTE_DEINE_GOOGLE_APPS_SCRIPT_URL_HIER";
+
+function checkAnswers(worksheetName) {
+  let correct = 0, total = 0;
+
+  document.querySelectorAll("input.blank[data-ans]").forEach((inp) => {
+    total++;
+    const accepted = inp.dataset.ans.split("|").map((a) => normalize(a));
+    const val = normalize(inp.value);
+    inp.classList.remove("correct", "incorrect");
+    if (val && accepted.includes(val)) { inp.classList.add("correct"); correct++; }
+    else { inp.classList.add("incorrect"); }
+  });
+
+  const groups = {};
+  document.querySelectorAll('input[type="radio"][name]').forEach((r) => {
+    (groups[r.name] = groups[r.name] || []).push(r);
+  });
+  Object.values(groups).forEach((group) => {
+    const correctRadio = group.find((r) => r.dataset.correct === "true");
+    if (!correctRadio) return;
+    total++;
+    group.forEach((r) => r.parentElement.classList.remove("correct", "incorrect"));
+    const chosen = group.find((r) => r.checked);
+    if (chosen === correctRadio) { correctRadio.parentElement.classList.add("correct"); correct++; }
+    else if (chosen) { chosen.parentElement.classList.add("incorrect"); }
+  });
+
+  const bar = document.getElementById("score-bar");
+  if (bar) {
+    bar.style.display = "block";
+    bar.textContent = total > 0
+      ? `Ergebnis: ${correct} von ${total} automatisch prüfbaren Aufgaben richtig. (Offene Schreibaufgaben bitte mit den Musterlösungen vergleichen oder von der Lehrperson korrigieren lassen.)`
+      : `Diese Übungen sind offene Schreibaufgaben – nutze die Musterlösungen zum Vergleichen.`;
+    bar.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  const nameInput = document.getElementById("student-name");
+  const klasseInput = document.getElementById("student-klasse");
+  const name = nameInput ? nameInput.value.trim() : "";
+  const klasse = klasseInput ? klasseInput.value.trim() : "";
+
+  if (!name) {
+    alert("Bitte trage zuerst deinen Namen ein, bevor du überprüfst.");
+    if (nameInput) nameInput.focus();
+    return;
+  }
+
+  sendToSheet({ name, klasse, worksheet: worksheetName, correct, total, timestamp: new Date().toISOString() });
+}
+
+function normalize(s) {
+  return String(s).trim().toLowerCase().replace(/\s+/g, " ").replace(/[.,;!?]+$/, "");
+}
+
+function sendToSheet(data) {
+  if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.indexOf("PASTE_DEINE") !== -1) {
+    console.warn("Google-Sheet-URL nicht konfiguriert – Ergebnis wird nur lokal angezeigt.");
+    return;
+  }
+  fetch(GOOGLE_SCRIPT_URL, {
+    method: "POST", mode: "no-cors",
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    body: JSON.stringify(data),
+  }).catch((err) => console.error("Fehler beim Speichern im Google Sheet:", err));
+}
+</script>
+</body>
+</html>

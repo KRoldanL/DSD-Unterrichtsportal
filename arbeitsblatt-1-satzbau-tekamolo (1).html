@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arbeitsblatt 1 – Satzbau und TeKaMoLo</title>
+<style>
+:root {
+  --primary: #1F4E78;
+  --accent: #2E7D32;
+  --light: #EAF1F8;
+  --lightAccent: #EAF5EA;
+  --border: #BFBFBF;
+  --text: #222;
+  --ok: #2E7D32;
+  --ok-bg: #EAF5EA;
+  --bad: #C0392B;
+  --bad-bg: #FBEAE8;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: "Segoe UI", "Calibri", Arial, sans-serif;
+  color: var(--text);
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 24px 80px;
+  line-height: 1.5;
+  background: #fff;
+}
+h1 { color: var(--primary); font-size: 2rem; margin-bottom: 4px; }
+.subtitle { font-style: italic; color: #555; border-bottom: 3px solid var(--primary); padding-bottom: 14px; margin-bottom: 20px; }
+.meta { display: flex; flex-wrap: wrap; gap: 24px; margin-bottom: 26px; font-size: 0.95rem; }
+.meta label { font-weight: 600; margin-right: 6px; }
+.meta input[type=text] { border: none; border-bottom: 1px solid #999; background: transparent; padding: 2px 4px; min-width: 160px; font-size: 0.95rem; }
+#score-bar {
+  display: none;
+  background: #FFF9E6; border: 1.5px solid #E0B400; border-radius: 6px;
+  padding: 10px 14px; margin-bottom: 20px; font-weight: 600; font-size: 0.95rem;
+}
+h2.section {
+  background: var(--light);
+  color: var(--primary);
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  margin-top: 34px;
+  margin-bottom: 10px;
+}
+.instr { font-style: italic; color: #444; margin-bottom: 14px; }
+.box {
+  background: var(--light);
+  border: 1.5px solid var(--primary);
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+}
+.box.accent { background: var(--lightAccent); border-color: var(--accent); }
+.box p { margin: 4px 0; }
+.box p.title { font-weight: 700; margin-bottom: 8px; }
+table { border-collapse: collapse; width: 100%; margin-bottom: 18px; font-size: 0.95rem; }
+th, td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+th { background: var(--primary); color: #fff; }
+.item { margin-bottom: 14px; }
+.item .q { font-weight: 500; }
+.item .q b { margin-right: 4px; }
+input.blank {
+  border: none;
+  border-bottom: 1.5px solid #999;
+  background: transparent;
+  padding: 3px 4px;
+  font-size: 1rem;
+  font-family: inherit;
+  min-width: 90px;
+}
+input.blank.correct { border-bottom: 2px solid var(--ok); background: var(--ok-bg); color: var(--ok); font-weight: 600; }
+input.blank.incorrect { border-bottom: 2px solid var(--bad); background: var(--bad-bg); color: var(--bad); font-weight: 600; }
+input.fill-line {
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1.5px solid #999;
+  background: transparent;
+  padding: 6px 4px;
+  font-size: 1rem;
+  font-family: inherit;
+  margin-top: 4px;
+}
+textarea {
+  width: 100%;
+  border: 1.5px solid var(--border);
+  border-radius: 4px;
+  padding: 10px;
+  font-family: inherit;
+  font-size: 1rem;
+  resize: vertical;
+  margin-top: 4px;
+}
+.checklist label { display: block; margin-bottom: 6px; cursor: pointer; }
+label.radio-opt { margin-right: 16px; padding: 3px 6px; border-radius: 4px; border: 1.5px solid transparent; }
+label.radio-opt.correct { border-color: var(--ok); background: var(--ok-bg); color: var(--ok); font-weight: 600; }
+label.radio-opt.incorrect { border-color: var(--bad); background: var(--bad-bg); color: var(--bad); font-weight: 600; }
+details.model { margin: 6px 0 0; font-size: 0.9rem; }
+details.model summary { cursor: pointer; color: var(--primary); }
+details.model .sol { margin-top: 6px; padding: 8px 10px; background: var(--lightAccent); border-radius: 4px; }
+.check-toolbar { text-align: right; margin: 18px 0 6px; }
+.check-toolbar button {
+  background: var(--primary); color: #fff; border: none; padding: 8px 16px;
+  border-radius: 4px; cursor: pointer; font-size: 0.9rem; margin-left: 8px;
+}
+.check-toolbar button.check { background: var(--accent); }
+.check-toolbar button:hover { opacity: 0.9; }
+.footer { margin-top: 50px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 0.8rem; color: #888; font-style: italic; }
+.page-nav { display: flex; justify-content: space-between; margin-top: 26px; font-size: 0.9rem; }
+.page-nav a { color: var(--primary); text-decoration: none; font-weight: 600; }
+.page-nav a:hover { text-decoration: underline; }
+@media print {
+  .check-toolbar, #score-bar { display: none; }
+  body { padding: 0; }
+  input.blank, input.fill-line { border-bottom: 1px solid #000; }
+}
+</style>
+</head>
+<body>
+<h1>Arbeitsblatt 1 – Satzbau und TeKaMoLo</h1>
+<p class="subtitle">Ziel: Sicherer deutscher Satzbau | Niveau A2/A2-B1 | 8./9. Klasse</p>
+<div class="meta">
+  <div><label>Name:</label><input type="text" id="student-name" class="fill-line" style="display:inline;width:200px;" placeholder="Pflichtfeld für Überprüfung"></div>
+  <div><label>Klasse:</label><input type="text" id="student-klasse" class="fill-line" style="display:inline;width:120px;"></div>
+  <div><label>Datum:</label><input type="text" class="fill-line" style="display:inline;width:120px;"></div>
+</div>
+<div id="score-bar"></div>
+<div class="box"><p class="title">Position 1 – Verb – Subjekt</p>
+<p>Im deutschen Aussagesatz steht das konjugierte Verb IMMER an Position 2.</p>
+<p>Position 1: Subjekt ODER eine andere Satzangabe (Zeit, Ort, Grund …)</p>
+<p>Position 2: konjugiertes Verb</p>
+<p>Steht nicht das Subjekt an Position 1, folgt danach direkt das Subjekt.</p></div><p><b>Beispiele:</b></p><table><thead><tr><th>Position 1</th><th>Position 2 (Verb)</th><th>Rest des Satzes</th></tr></thead><tbody><tr><td>Ich</td><td>gehe</td><td>heute ins Kino.</td></tr>
+<tr><td>Heute</td><td>gehe</td><td>ich ins Kino.</td></tr>
+<tr><td>Nach der Schule</td><td>spielt</td><td>Tim Fußball.</td></tr></tbody></table><h2 class="section">TeKaMoLo – Reihenfolge der Angaben im Mittelfeld</h2><div class="box accent"><p class="title">TeKaMoLo</p>
+<p>Te = Temporal (wann?)</p>
+<p>Ka = Kausal (warum?)</p>
+<p>Mo = Modal (wie?)</p>
+<p>Lo = Lokal (wo/wohin?)</p></div><p class="instr">Merksatz: Wann → Warum → Wie → Wo (zuerst die Zeit, dann der Grund, dann die Art, dann der Ort).</p><p>Beispiel: Ich fahre <b style="color:#2E7D32">morgen</b> (Te) <b style="color:#2E7D32">wegen des Wetters</b> (Ka) <b style="color:#2E7D32">mit dem Bus</b> (Mo) <b style="color:#2E7D32">in die Stadt</b> (Lo).</p><h2 class="section">Übung 1: Satzpuzzle</h2><p class="instr">Bringe die Wörter in die richtige Reihenfolge. Achte auf Position 2 (Verb) und TeKaMoLo. Vergleiche danach mit der Musterlösung.</p><div class="item"><p class="q"><b>1.</b>ins Kino / gestern / mit meiner Schwester / ich / bin / gegangen</p><input type="text" class="fill-line"><details class="model"><summary>Musterlösung anzeigen</summary><div class="sol">Gestern bin ich mit meiner Schwester ins Kino gegangen.</div></details></div><div class="item"><p class="q"><b>2.</b>wegen der Prüfung / muss / heute Abend / lernen / Paul</p><input type="text" class="fill-line"><details class="model"><summary>Musterlösung anzeigen</summary><div class="sol">Heute Abend muss Paul wegen der Prüfung lernen.</div></details></div><div class="item"><p class="q"><b>3.</b>fährt / mit dem Fahrrad / Lisa / jeden Morgen / zur Schule</p><input type="text" class="fill-line"><details class="model"><summary>Musterlösung anzeigen</summary><div class="sol">Lisa fährt jeden Morgen mit dem Fahrrad zur Schule.</div></details></div><div class="item"><p class="q"><b>4.</b>im Park / spielen / oft / am Wochenende / wir / Fußball</p><input type="text" class="fill-line"><details class="model"><summary>Musterlösung anzeigen</summary><div class="sol">Am Wochenende spielen wir oft im Park Fußball.</div></details></div><div class="item"><p class="q"><b>5.</b>kommt / wegen des Regens / später / mein Vater / nach Hause</p><input type="text" class="fill-line"><details class="model"><summary>Musterlösung anzeigen</summary><div class="sol">Wegen des Regens kommt mein Vater später nach Hause.</div></details></div><div class="item"><p class="q"><b>6.</b>isst / mit seinen Freunden / in der Pause / Tom / ein Brot</p><input type="text" class="fill-line"><details class="model"><summary>Musterlösung anzeigen</summary><div class="sol">In der Pause isst Tom mit seinen Freunden ein Brot.</div></details></div><div class="item"><p class="q"><b>7.</b>gehe / heute / schnell / ich / zum Arzt</p><input type="text" class="fill-line"><details class="model"><summary>Musterlösung anzeigen</summary><div class="sol">Heute gehe ich schnell zum Arzt.</div></details></div><div class="item"><p class="q"><b>8.</b>hat / gestern Abend / ihre Hausaufgaben / ruhig / Anna / gemacht</p><input type="text" class="fill-line"><details class="model"><summary>Musterlösung anzeigen</summary><div class="sol">Gestern Abend hat Anna ruhig ihre Hausaufgaben gemacht.</div></details></div><div class="item"><p class="q"><b>9.</b>fliegen / im Sommer / wegen des Urlaubs / wir / nach Spanien</p><input type="text" class="fill-line"><details class="model"><summary>Musterlösung anzeigen</summary><div class="sol">Im Sommer fliegen wir wegen des Urlaubs nach Spanien.</div></details></div><div class="item"><p class="q"><b>10.</b>räumt / jeden Samstag / sorgfältig / sein Zimmer / Max / auf</p><input type="text" class="fill-line"><details class="model"><summary>Musterlösung anzeigen</summary><div class="sol">Jeden Samstag räumt Max sorgfältig sein Zimmer auf.</div></details></div><h2 class="section">Übung 2: Satzstreifen ordnen</h2><p class="instr">Die Satzteile sind durcheinander. Trage die Buchstaben in der richtigen Reihenfolge ein, sodass ein korrekter Satz entsteht.</p><div class="item"><p class="q"><b>Satz 1:</b> a) Julia   b) Nach der Schule   c) mit dem Bus   d) fährt   e) nach Hause.</p><p>Richtige Reihenfolge: <input type="text" class="blank" style="width:40px;" data-ans="b"> <input type="text" class="blank" style="width:40px;" data-ans="d"> <input type="text" class="blank" style="width:40px;" data-ans="a"> <input type="text" class="blank" style="width:40px;" data-ans="c"> <input type="text" class="blank" style="width:40px;" data-ans="e"></p></div><div class="item"><p class="q"><b>Satz 2:</b> a) bleiben   b) zu Hause.   c) Wegen des schlechten Wetters   d) wir   e) heute</p><p>Richtige Reihenfolge: <input type="text" class="blank" style="width:40px;" data-ans="c"> <input type="text" class="blank" style="width:40px;" data-ans="a"> <input type="text" class="blank" style="width:40px;" data-ans="d"> <input type="text" class="blank" style="width:40px;" data-ans="e"> <input type="text" class="blank" style="width:40px;" data-ans="b"></p></div><div class="item"><p class="q"><b>Satz 3:</b> a) sich Ben   b) freundlich   c) Am Nachmittag   d) mit seinen Freunden.   e) trifft</p><p>Richtige Reihenfolge: <input type="text" class="blank" style="width:40px;" data-ans="c"> <input type="text" class="blank" style="width:40px;" data-ans="e"> <input type="text" class="blank" style="width:40px;" data-ans="a"> <input type="text" class="blank" style="width:40px;" data-ans="b"> <input type="text" class="blank" style="width:40px;" data-ans="d"></p></div><h2 class="section">Übung 3: Fehler finden</h2><p class="instr">In jedem Satz ist die Wortstellung falsch. Schreibe den Satz richtig auf (Groß-/Kleinschreibung und Punkt beachten).</p><div class="item"><p class="q"><b>1.</b> Heute ich gehe ins Schwimmbad.</p><input type="text" class="blank" style="width:100%;display:block;" data-ans="Heute gehe ich ins Schwimmbad."></div><div class="item"><p class="q"><b>2.</b> Wegen der Prüfung Paul muss viel lernen.</p><input type="text" class="blank" style="width:100%;display:block;" data-ans="Wegen der Prüfung muss Paul viel lernen."></div><div class="item"><p class="q"><b>3.</b> Am Wochenende wir fahren zu unserer Oma.</p><input type="text" class="blank" style="width:100%;display:block;" data-ans="Am Wochenende fahren wir zu unserer Oma."></div><div class="item"><p class="q"><b>4.</b> Gestern hat gespielt Tim Basketball.</p><input type="text" class="blank" style="width:100%;display:block;" data-ans="Gestern hat Tim Basketball gespielt."></div><div class="item"><p class="q"><b>5.</b> In der Pause die Schüler essen ein Brötchen.</p><input type="text" class="blank" style="width:100%;display:block;" data-ans="In der Pause essen die Schüler ein Brötchen."></div><div class="item"><p class="q"><b>6.</b> Morgen früh meine Mutter fliegt nach Berlin.</p><input type="text" class="blank" style="width:100%;display:block;" data-ans="Morgen früh fliegt meine Mutter nach Berlin."></div><h2 class="section">Übung 4: Sätze erweitern</h2><p class="instr">Erweitere die einfachen Sätze mit den angegebenen TeKaMoLo-Angaben. Achte auf die richtige Reihenfolge. Vergleiche mit der Musterlösung.</p><div class="item"><p class="q"><b>1.</b>Ich lerne Deutsch. (Te: jeden Tag / Ka: wegen der Prüfung / Mo: fleißig)</p><input type="text" class="fill-line"><details class="model"><summary>Musterlösung anzeigen</summary><div class="sol">Ich lerne jeden Tag wegen der Prüfung fleißig Deutsch.</div></details></div><div class="item"><p class="q"><b>2.</b>Wir fahren ans Meer. (Te: im Sommer / Mo: mit dem Auto)</p><input type="text" class="fill-line"><details class="model"><summary>Musterlösung anzeigen</summary><div class="sol">Wir fahren im Sommer mit dem Auto ans Meer.</div></details></div><div class="item"><p class="q"><b>3.</b>Er geht zum Sport. (Te: am Montag / Ka: wegen seiner Gesundheit / Lo: ins Fitnessstudio)</p><input type="text" class="fill-line"><details class="model"><summary>Musterlösung anzeigen</summary><div class="sol">Er geht am Montag wegen seiner Gesundheit ins Fitnessstudio.</div></details></div><div class="item"><p class="q"><b>4.</b>Sie besucht ihre Freundin. (Te: nach der Schule / Mo: mit dem Fahrrad)</p><input type="text" class="fill-line"><details class="model"><summary>Musterlösung anzeigen</summary><div class="sol">Sie besucht nach der Schule mit dem Fahrrad ihre Freundin.</div></details></div><h2 class="section">Übung 5: Schreibübung: Aus kurzen Sätzen längere DSD-Sätze bilden</h2><p class="instr">Verbinde die kurzen Sätze zu einem längeren, flüssigen Satz mit TeKaMoLo-Angaben. Diese Technik brauchst du auch beim Leserbrief für das DSD I.</p><div class="item"><p class="q"><b>1.</b> <i>Ich stehe auf. Es ist 7 Uhr. Ich bin müde.</i></p><textarea rows="2"></textarea><details class="model"><summary>Musterlösung anzeigen</summary><div class="sol">Ich stehe um 7 Uhr auf, obwohl ich noch müde bin.</div></details></div><div class="item"><p class="q"><b>2.</b> <i>Wir fahren in die Stadt. Es ist Samstag. Wir nehmen den Bus.</i></p><textarea rows="2"></textarea><details class="model"><summary>Musterlösung anzeigen</summary><div class="sol">Am Samstag fahren wir mit dem Bus in die Stadt.</div></details></div><div class="item"><p class="q"><b>3.</b> <i>Meine Familie feiert ein Fest. Es ist mein Geburtstag. Wir feiern zu Hause.</i></p><textarea rows="2"></textarea><details class="model"><summary>Musterlösung anzeigen</summary><div class="sol">Weil ich Geburtstag habe, feiert meine Familie zu Hause ein Fest.</div></details></div>
+<div class="check-toolbar">
+  <button onclick="window.print()">🖨️ Drucken / PDF</button>
+  <button class="check" onclick="checkAnswers('Arbeitsblatt 1 – Satzbau und TeKaMoLo')">✅ Antworten überprüfen</button>
+</div>
+<div class="page-nav">
+    <span></span>
+    <span><a href="arbeitsblatt-2-konnektoren.html">Konnektoren →</a></span>
+  </div>
+<p class="footer">Deutsch als Fremdsprache – Satzbau und TeKaMoLo – Arbeitsblatt 1/6</p>
+<script>
+const GOOGLE_SCRIPT_URL = "PASTE_DEINE_GOOGLE_APPS_SCRIPT_URL_HIER";
+
+function checkAnswers(worksheetName) {
+  let correct = 0, total = 0;
+
+  document.querySelectorAll("input.blank[data-ans]").forEach((inp) => {
+    total++;
+    const accepted = inp.dataset.ans.split("|").map((a) => normalize(a));
+    const val = normalize(inp.value);
+    inp.classList.remove("correct", "incorrect");
+    if (val && accepted.includes(val)) { inp.classList.add("correct"); correct++; }
+    else { inp.classList.add("incorrect"); }
+  });
+
+  const groups = {};
+  document.querySelectorAll('input[type="radio"][name]').forEach((r) => {
+    (groups[r.name] = groups[r.name] || []).push(r);
+  });
+  Object.values(groups).forEach((group) => {
+    const correctRadio = group.find((r) => r.dataset.correct === "true");
+    if (!correctRadio) return;
+    total++;
+    group.forEach((r) => r.parentElement.classList.remove("correct", "incorrect"));
+    const chosen = group.find((r) => r.checked);
+    if (chosen === correctRadio) { correctRadio.parentElement.classList.add("correct"); correct++; }
+    else if (chosen) { chosen.parentElement.classList.add("incorrect"); }
+  });
+
+  const bar = document.getElementById("score-bar");
+  if (bar) {
+    bar.style.display = "block";
+    bar.textContent = total > 0
+      ? `Ergebnis: ${correct} von ${total} automatisch prüfbaren Aufgaben richtig. (Offene Schreibaufgaben bitte mit den Musterlösungen vergleichen oder von der Lehrperson korrigieren lassen.)`
+      : `Diese Übungen sind offene Schreibaufgaben – nutze die Musterlösungen zum Vergleichen.`;
+    bar.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  const nameInput = document.getElementById("student-name");
+  const klasseInput = document.getElementById("student-klasse");
+  const name = nameInput ? nameInput.value.trim() : "";
+  const klasse = klasseInput ? klasseInput.value.trim() : "";
+
+  if (!name) {
+    alert("Bitte trage zuerst deinen Namen ein, bevor du überprüfst.");
+    if (nameInput) nameInput.focus();
+    return;
+  }
+
+  sendToSheet({ name, klasse, worksheet: worksheetName, correct, total, timestamp: new Date().toISOString() });
+}
+
+function normalize(s) {
+  return String(s).trim().toLowerCase().replace(/\s+/g, " ").replace(/[.,;!?]+$/, "");
+}
+
+function sendToSheet(data) {
+  if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.indexOf("PASTE_DEINE") !== -1) {
+    console.warn("Google-Sheet-URL nicht konfiguriert – Ergebnis wird nur lokal angezeigt.");
+    return;
+  }
+  fetch(GOOGLE_SCRIPT_URL, {
+    method: "POST", mode: "no-cors",
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    body: JSON.stringify(data),
+  }).catch((err) => console.error("Fehler beim Speichern im Google Sheet:", err));
+}
+</script>
+</body>
+</html>

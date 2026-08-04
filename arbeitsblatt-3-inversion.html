@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arbeitsblatt 3 – Inversion</title>
+<style>
+:root {
+  --primary: #1F4E78;
+  --accent: #2E7D32;
+  --light: #EAF1F8;
+  --lightAccent: #EAF5EA;
+  --border: #BFBFBF;
+  --text: #222;
+  --ok: #2E7D32;
+  --ok-bg: #EAF5EA;
+  --bad: #C0392B;
+  --bad-bg: #FBEAE8;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: "Segoe UI", "Calibri", Arial, sans-serif;
+  color: var(--text);
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 24px 80px;
+  line-height: 1.5;
+  background: #fff;
+}
+h1 { color: var(--primary); font-size: 2rem; margin-bottom: 4px; }
+.subtitle { font-style: italic; color: #555; border-bottom: 3px solid var(--primary); padding-bottom: 14px; margin-bottom: 20px; }
+.meta { display: flex; flex-wrap: wrap; gap: 24px; margin-bottom: 26px; font-size: 0.95rem; }
+.meta label { font-weight: 600; margin-right: 6px; }
+.meta input[type=text] { border: none; border-bottom: 1px solid #999; background: transparent; padding: 2px 4px; min-width: 160px; font-size: 0.95rem; }
+#score-bar {
+  display: none;
+  background: #FFF9E6; border: 1.5px solid #E0B400; border-radius: 6px;
+  padding: 10px 14px; margin-bottom: 20px; font-weight: 600; font-size: 0.95rem;
+}
+h2.section {
+  background: var(--light);
+  color: var(--primary);
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  margin-top: 34px;
+  margin-bottom: 10px;
+}
+.instr { font-style: italic; color: #444; margin-bottom: 14px; }
+.box {
+  background: var(--light);
+  border: 1.5px solid var(--primary);
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+}
+.box.accent { background: var(--lightAccent); border-color: var(--accent); }
+.box p { margin: 4px 0; }
+.box p.title { font-weight: 700; margin-bottom: 8px; }
+table { border-collapse: collapse; width: 100%; margin-bottom: 18px; font-size: 0.95rem; }
+th, td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+th { background: var(--primary); color: #fff; }
+.item { margin-bottom: 14px; }
+.item .q { font-weight: 500; }
+.item .q b { margin-right: 4px; }
+input.blank {
+  border: none;
+  border-bottom: 1.5px solid #999;
+  background: transparent;
+  padding: 3px 4px;
+  font-size: 1rem;
+  font-family: inherit;
+  min-width: 90px;
+}
+input.blank.correct { border-bottom: 2px solid var(--ok); background: var(--ok-bg); color: var(--ok); font-weight: 600; }
+input.blank.incorrect { border-bottom: 2px solid var(--bad); background: var(--bad-bg); color: var(--bad); font-weight: 600; }
+input.fill-line {
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1.5px solid #999;
+  background: transparent;
+  padding: 6px 4px;
+  font-size: 1rem;
+  font-family: inherit;
+  margin-top: 4px;
+}
+textarea {
+  width: 100%;
+  border: 1.5px solid var(--border);
+  border-radius: 4px;
+  padding: 10px;
+  font-family: inherit;
+  font-size: 1rem;
+  resize: vertical;
+  margin-top: 4px;
+}
+.checklist label { display: block; margin-bottom: 6px; cursor: pointer; }
+label.radio-opt { margin-right: 16px; padding: 3px 6px; border-radius: 4px; border: 1.5px solid transparent; }
+label.radio-opt.correct { border-color: var(--ok); background: var(--ok-bg); color: var(--ok); font-weight: 600; }
+label.radio-opt.incorrect { border-color: var(--bad); background: var(--bad-bg); color: var(--bad); font-weight: 600; }
+details.model { margin: 6px 0 0; font-size: 0.9rem; }
+details.model summary { cursor: pointer; color: var(--primary); }
+details.model .sol { margin-top: 6px; padding: 8px 10px; background: var(--lightAccent); border-radius: 4px; }
+.check-toolbar { text-align: right; margin: 18px 0 6px; }
+.check-toolbar button {
+  background: var(--primary); color: #fff; border: none; padding: 8px 16px;
+  border-radius: 4px; cursor: pointer; font-size: 0.9rem; margin-left: 8px;
+}
+.check-toolbar button.check { background: var(--accent); }
+.check-toolbar button:hover { opacity: 0.9; }
+.footer { margin-top: 50px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 0.8rem; color: #888; font-style: italic; }
+.page-nav { display: flex; justify-content: space-between; margin-top: 26px; font-size: 0.9rem; }
+.page-nav a { color: var(--primary); text-decoration: none; font-weight: 600; }
+.page-nav a:hover { text-decoration: underline; }
+@media print {
+  .check-toolbar, #score-bar { display: none; }
+  body { padding: 0; }
+  input.blank, input.fill-line { border-bottom: 1px solid #000; }
+}
+</style>
+</head>
+<body>
+<h1>Arbeitsblatt 3 – Inversion</h1>
+<p class="subtitle">Zeitangaben, Ortsangaben, Adverbien, trotzdem, deshalb, danach, außerdem | Niveau A2/A2-B1</p>
+<div class="meta">
+  <div><label>Name:</label><input type="text" id="student-name" class="fill-line" style="display:inline;width:200px;" placeholder="Pflichtfeld für Überprüfung"></div>
+  <div><label>Klasse:</label><input type="text" id="student-klasse" class="fill-line" style="display:inline;width:120px;"></div>
+  <div><label>Datum:</label><input type="text" class="fill-line" style="display:inline;width:120px;"></div>
+</div>
+<div id="score-bar"></div>
+<div class="box"><p class="title">Inversion bedeutet: Nicht das Subjekt, sondern eine andere Angabe steht an Position 1.</p>
+<p>Das Verb bleibt trotzdem an Position 2. Das Subjekt rückt dann an Position 3.</p>
+<p>Auslöser für Inversion: Zeitangaben (heute, morgen …), Ortsangaben (in Berlin …),</p>
+<p>Adverbien (deshalb, trotzdem, danach, außerdem …).</p></div><table><thead><tr><th>Position 1</th><th>Position 2 (Verb)</th><th>Position 3 (Subjekt)</th><th>Rest</th></tr></thead><tbody><tr><td>Morgen</td><td>fahre</td><td>ich</td><td>nach Berlin.</td></tr>
+<tr><td>In Berlin</td><td>besuche</td><td>ich</td><td>das Museum.</td></tr>
+<tr><td>Deshalb</td><td>bleibt</td><td>sie</td><td>heute zu Hause.</td></tr>
+<tr><td>Trotzdem</td><td>geht</td><td>er</td><td>spazieren.</td></tr>
+<tr><td>Danach</td><td>trinken</td><td>wir</td><td>einen Kaffee.</td></tr></tbody></table><p class="instr">Merke: Position 1 kann nur EIN Satzglied sein – nicht zwei Wörter unabhängig voneinander!</p><h2 class="section">Übung 1: Umformen</h2><p class="instr">Forme die Sätze so um, dass die angegebene Angabe an Position 1 steht.</p><div class="item"><p class="q"><b>1.</b> Ich gehe heute ins Kino. → (heute an Position 1)</p><input type="text" class="blank" style="width:100%;display:block;" data-ans="Heute gehe ich ins Kino."></div><div class="item"><p class="q"><b>2.</b> Wir wohnen in München seit zwei Jahren. → (in München an Position 1)</p><input type="text" class="blank" style="width:100%;display:block;" data-ans="In München wohnen wir seit zwei Jahren."></div><div class="item"><p class="q"><b>3.</b> Ich bin müde, deshalb gehe ich früh ins Bett. → (deshalb an Position 1, zweiter Teilsatz)</p><input type="text" class="blank" style="width:100%;display:block;" data-ans="Ich bin müde, deshalb gehe ich früh ins Bett."></div><div class="item"><p class="q"><b>4.</b> Er hat Fieber, trotzdem geht er zur Schule. → (trotzdem an Position 1, zweiter Teilsatz)</p><input type="text" class="blank" style="width:100%;display:block;" data-ans="Er hat Fieber, trotzdem geht er zur Schule."></div><div class="item"><p class="q"><b>5.</b> Wir essen zu Mittag, danach machen wir Hausaufgaben. → (danach an Position 1, zweiter Teilsatz)</p><input type="text" class="blank" style="width:100%;display:block;" data-ans="Wir essen zu Mittag, danach machen wir Hausaufgaben."></div><div class="item"><p class="q"><b>6.</b> Meine Schwester spielt gern Klavier. Sie singt außerdem im Chor. → (außerdem an Position 1)</p><input type="text" class="blank" style="width:100%;display:block;" data-ans="Meine Schwester spielt gern Klavier. Außerdem singt sie im Chor."></div><h2 class="section">Übung 2: Satzkarten</h2><p class="instr">Baue aus den Satzkarten je einen korrekten Satz mit Inversion. Schreibe den vollständigen Satz auf.</p><div class="item"><p class="q"><b>Karten 1.</b>morgen / wir / fahren / in die Berge</p><input type="text" class="fill-line"><details class="model"><summary>Musterlösung anzeigen</summary><div class="sol">Morgen fahren wir in die Berge.</div></details></div><div class="item"><p class="q"><b>Karten 2.</b>in der Pause / die Schüler / essen / ein Brötchen</p><input type="text" class="fill-line"><details class="model"><summary>Musterlösung anzeigen</summary><div class="sol">In der Pause essen die Schüler ein Brötchen.</div></details></div><div class="item"><p class="q"><b>Karten 3.</b>trotzdem / sie / geht / zur Arbeit</p><input type="text" class="fill-line"><details class="model"><summary>Musterlösung anzeigen</summary><div class="sol">Trotzdem geht sie zur Arbeit.</div></details></div><div class="item"><p class="q"><b>Karten 4.</b>deshalb / ich / bin / sehr glücklich</p><input type="text" class="fill-line"><details class="model"><summary>Musterlösung anzeigen</summary><div class="sol">Deshalb bin ich sehr glücklich.</div></details></div><div class="item"><p class="q"><b>Karten 5.</b>am Wochenende / meine Familie / besucht / die Großeltern</p><input type="text" class="fill-line"><details class="model"><summary>Musterlösung anzeigen</summary><div class="sol">Am Wochenende besucht meine Familie die Großeltern.</div></details></div><h2 class="section">Übung 3: Domino</h2><p class="instr">Verbinde die passenden Satzhälften, sodass korrekte Sätze mit Inversion entstehen.</p><table><thead><tr><th>Satzanfang</th><th></th><th>Satzende</th></tr></thead><tbody><tr><td>A. Heute Abend</td><td>→</td><td>1. fährt der Zug nach Hamburg.</td></tr>
+<tr><td>B. Wegen des Sturms</td><td>→</td><td>2. bleiben wir zu Hause.</td></tr>
+<tr><td>C. Deshalb</td><td>→</td><td>3. koche ich Nudeln.</td></tr>
+<tr><td>D. Um 8 Uhr</td><td>→</td><td>4. hat die Schule Sturmwarnung bekommen.</td></tr>
+<tr><td>E. Trotzdem</td><td>→</td><td>5. gehen die Kinder heute nicht raus.</td></tr></tbody></table><p>Lösung: A-<input type="text" class="blank" style="width:40px;" data-ans="3"> B-<input type="text" class="blank" style="width:40px;" data-ans="4"> C-<input type="text" class="blank" style="width:40px;" data-ans="2"> D-<input type="text" class="blank" style="width:40px;" data-ans="1"> E-<input type="text" class="blank" style="width:40px;" data-ans="5"></p><h2 class="section">Übung 4: Fehlerjagd</h2><p class="instr">Finde und korrigiere den Wortstellungsfehler in jedem Satz.</p><div class="item"><p class="q"><b>1.</b> Morgen ich fahre nach Köln.</p><input type="text" class="blank" style="width:100%;display:block;" data-ans="Morgen fahre ich nach Köln."></div><div class="item"><p class="q"><b>2.</b> In der Schule wir lernen Deutsch.</p><input type="text" class="blank" style="width:100%;display:block;" data-ans="In der Schule lernen wir Deutsch."></div><div class="item"><p class="q"><b>3.</b> Deshalb sie kommt heute später.</p><input type="text" class="blank" style="width:100%;display:block;" data-ans="Deshalb kommt sie heute später."></div><div class="item"><p class="q"><b>4.</b> Trotzdem er ist glücklich.</p><input type="text" class="blank" style="width:100%;display:block;" data-ans="Trotzdem ist er glücklich."></div><div class="item"><p class="q"><b>5.</b> Danach wir gehen ins Café.</p><input type="text" class="blank" style="width:100%;display:block;" data-ans="Danach gehen wir ins Café."></div><h2 class="section">Übung 5: Schreibaufgaben</h2><p class="instr">Schreibe zu jedem Thema 2 Sätze. Beginne den zweiten Satz jeweils mit dem angegebenen Wort (Inversion). (Frei, wird von der Lehrperson korrigiert.)</p><div class="item"><p class="q"><b>1.</b> Dein Wochenende (Beginn Satz 2 mit: Danach)</p><textarea rows="2"></textarea></div><div class="item"><p class="q"><b>2.</b> Warum du Deutsch lernst (Beginn Satz 2 mit: Deshalb)</p><textarea rows="2"></textarea></div><div class="item"><p class="q"><b>3.</b> Ein Problem und trotzdem eine gute Lösung (Beginn Satz 2 mit: Trotzdem)</p><textarea rows="2"></textarea></div>
+<div class="check-toolbar">
+  <button onclick="window.print()">🖨️ Drucken / PDF</button>
+  <button class="check" onclick="checkAnswers('Arbeitsblatt 3 – Inversion')">✅ Antworten überprüfen</button>
+</div>
+<div class="page-nav">
+    <span><a href="arbeitsblatt-2-konnektoren.html">← Konnektoren</a></span>
+    <span><a href="arbeitsblatt-4-zeitformen.html">Zeitformen →</a></span>
+  </div>
+<p class="footer">Deutsch als Fremdsprache – Inversion – Arbeitsblatt 3/6</p>
+<script>
+const GOOGLE_SCRIPT_URL = "PASTE_DEINE_GOOGLE_APPS_SCRIPT_URL_HIER";
+
+function checkAnswers(worksheetName) {
+  let correct = 0, total = 0;
+
+  document.querySelectorAll("input.blank[data-ans]").forEach((inp) => {
+    total++;
+    const accepted = inp.dataset.ans.split("|").map((a) => normalize(a));
+    const val = normalize(inp.value);
+    inp.classList.remove("correct", "incorrect");
+    if (val && accepted.includes(val)) { inp.classList.add("correct"); correct++; }
+    else { inp.classList.add("incorrect"); }
+  });
+
+  const groups = {};
+  document.querySelectorAll('input[type="radio"][name]').forEach((r) => {
+    (groups[r.name] = groups[r.name] || []).push(r);
+  });
+  Object.values(groups).forEach((group) => {
+    const correctRadio = group.find((r) => r.dataset.correct === "true");
+    if (!correctRadio) return;
+    total++;
+    group.forEach((r) => r.parentElement.classList.remove("correct", "incorrect"));
+    const chosen = group.find((r) => r.checked);
+    if (chosen === correctRadio) { correctRadio.parentElement.classList.add("correct"); correct++; }
+    else if (chosen) { chosen.parentElement.classList.add("incorrect"); }
+  });
+
+  const bar = document.getElementById("score-bar");
+  if (bar) {
+    bar.style.display = "block";
+    bar.textContent = total > 0
+      ? `Ergebnis: ${correct} von ${total} automatisch prüfbaren Aufgaben richtig. (Offene Schreibaufgaben bitte mit den Musterlösungen vergleichen oder von der Lehrperson korrigieren lassen.)`
+      : `Diese Übungen sind offene Schreibaufgaben – nutze die Musterlösungen zum Vergleichen.`;
+    bar.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  const nameInput = document.getElementById("student-name");
+  const klasseInput = document.getElementById("student-klasse");
+  const name = nameInput ? nameInput.value.trim() : "";
+  const klasse = klasseInput ? klasseInput.value.trim() : "";
+
+  if (!name) {
+    alert("Bitte trage zuerst deinen Namen ein, bevor du überprüfst.");
+    if (nameInput) nameInput.focus();
+    return;
+  }
+
+  sendToSheet({ name, klasse, worksheet: worksheetName, correct, total, timestamp: new Date().toISOString() });
+}
+
+function normalize(s) {
+  return String(s).trim().toLowerCase().replace(/\s+/g, " ").replace(/[.,;!?]+$/, "");
+}
+
+function sendToSheet(data) {
+  if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.indexOf("PASTE_DEINE") !== -1) {
+    console.warn("Google-Sheet-URL nicht konfiguriert – Ergebnis wird nur lokal angezeigt.");
+    return;
+  }
+  fetch(GOOGLE_SCRIPT_URL, {
+    method: "POST", mode: "no-cors",
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    body: JSON.stringify(data),
+  }).catch((err) => console.error("Fehler beim Speichern im Google Sheet:", err));
+}
+</script>
+</body>
+</html>

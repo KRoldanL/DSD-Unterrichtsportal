@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arbeitsblatt 4 – Zeitformen</title>
+<style>
+:root {
+  --primary: #1F4E78;
+  --accent: #2E7D32;
+  --light: #EAF1F8;
+  --lightAccent: #EAF5EA;
+  --border: #BFBFBF;
+  --text: #222;
+  --ok: #2E7D32;
+  --ok-bg: #EAF5EA;
+  --bad: #C0392B;
+  --bad-bg: #FBEAE8;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: "Segoe UI", "Calibri", Arial, sans-serif;
+  color: var(--text);
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 24px 80px;
+  line-height: 1.5;
+  background: #fff;
+}
+h1 { color: var(--primary); font-size: 2rem; margin-bottom: 4px; }
+.subtitle { font-style: italic; color: #555; border-bottom: 3px solid var(--primary); padding-bottom: 14px; margin-bottom: 20px; }
+.meta { display: flex; flex-wrap: wrap; gap: 24px; margin-bottom: 26px; font-size: 0.95rem; }
+.meta label { font-weight: 600; margin-right: 6px; }
+.meta input[type=text] { border: none; border-bottom: 1px solid #999; background: transparent; padding: 2px 4px; min-width: 160px; font-size: 0.95rem; }
+#score-bar {
+  display: none;
+  background: #FFF9E6; border: 1.5px solid #E0B400; border-radius: 6px;
+  padding: 10px 14px; margin-bottom: 20px; font-weight: 600; font-size: 0.95rem;
+}
+h2.section {
+  background: var(--light);
+  color: var(--primary);
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  margin-top: 34px;
+  margin-bottom: 10px;
+}
+.instr { font-style: italic; color: #444; margin-bottom: 14px; }
+.box {
+  background: var(--light);
+  border: 1.5px solid var(--primary);
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+}
+.box.accent { background: var(--lightAccent); border-color: var(--accent); }
+.box p { margin: 4px 0; }
+.box p.title { font-weight: 700; margin-bottom: 8px; }
+table { border-collapse: collapse; width: 100%; margin-bottom: 18px; font-size: 0.95rem; }
+th, td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+th { background: var(--primary); color: #fff; }
+.item { margin-bottom: 14px; }
+.item .q { font-weight: 500; }
+.item .q b { margin-right: 4px; }
+input.blank {
+  border: none;
+  border-bottom: 1.5px solid #999;
+  background: transparent;
+  padding: 3px 4px;
+  font-size: 1rem;
+  font-family: inherit;
+  min-width: 90px;
+}
+input.blank.correct { border-bottom: 2px solid var(--ok); background: var(--ok-bg); color: var(--ok); font-weight: 600; }
+input.blank.incorrect { border-bottom: 2px solid var(--bad); background: var(--bad-bg); color: var(--bad); font-weight: 600; }
+input.fill-line {
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1.5px solid #999;
+  background: transparent;
+  padding: 6px 4px;
+  font-size: 1rem;
+  font-family: inherit;
+  margin-top: 4px;
+}
+textarea {
+  width: 100%;
+  border: 1.5px solid var(--border);
+  border-radius: 4px;
+  padding: 10px;
+  font-family: inherit;
+  font-size: 1rem;
+  resize: vertical;
+  margin-top: 4px;
+}
+.checklist label { display: block; margin-bottom: 6px; cursor: pointer; }
+label.radio-opt { margin-right: 16px; padding: 3px 6px; border-radius: 4px; border: 1.5px solid transparent; }
+label.radio-opt.correct { border-color: var(--ok); background: var(--ok-bg); color: var(--ok); font-weight: 600; }
+label.radio-opt.incorrect { border-color: var(--bad); background: var(--bad-bg); color: var(--bad); font-weight: 600; }
+details.model { margin: 6px 0 0; font-size: 0.9rem; }
+details.model summary { cursor: pointer; color: var(--primary); }
+details.model .sol { margin-top: 6px; padding: 8px 10px; background: var(--lightAccent); border-radius: 4px; }
+.check-toolbar { text-align: right; margin: 18px 0 6px; }
+.check-toolbar button {
+  background: var(--primary); color: #fff; border: none; padding: 8px 16px;
+  border-radius: 4px; cursor: pointer; font-size: 0.9rem; margin-left: 8px;
+}
+.check-toolbar button.check { background: var(--accent); }
+.check-toolbar button:hover { opacity: 0.9; }
+.footer { margin-top: 50px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 0.8rem; color: #888; font-style: italic; }
+.page-nav { display: flex; justify-content: space-between; margin-top: 26px; font-size: 0.9rem; }
+.page-nav a { color: var(--primary); text-decoration: none; font-weight: 600; }
+.page-nav a:hover { text-decoration: underline; }
+@media print {
+  .check-toolbar, #score-bar { display: none; }
+  body { padding: 0; }
+  input.blank, input.fill-line { border-bottom: 1px solid #000; }
+}
+</style>
+</head>
+<body>
+<h1>Arbeitsblatt 4 – Zeitformen</h1>
+<p class="subtitle">Präsens, Perfekt, Futur I, Konjunktiv II | Niveau A2/A2-B1</p>
+<div class="meta">
+  <div><label>Name:</label><input type="text" id="student-name" class="fill-line" style="display:inline;width:200px;" placeholder="Pflichtfeld für Überprüfung"></div>
+  <div><label>Klasse:</label><input type="text" id="student-klasse" class="fill-line" style="display:inline;width:120px;"></div>
+  <div><label>Datum:</label><input type="text" class="fill-line" style="display:inline;width:120px;"></div>
+</div>
+<div id="score-bar"></div>
+<h2 class="section">Übersichtstabelle</h2><table><thead><tr><th>Zeitform</th><th>Bildung</th><th>Beispiel (spielen)</th><th>Verwendung</th></tr></thead><tbody><tr><td>Präsens</td><td>Verbstamm + Endung</td><td>ich spiele</td><td>Gegenwart, allgemeine Fakten</td></tr>
+<tr><td>Perfekt</td><td>haben/sein + Partizip II</td><td>ich habe gespielt</td><td>Vergangenheit (gesprochen)</td></tr>
+<tr><td>Futur I</td><td>werden + Infinitiv</td><td>ich werde spielen</td><td>Zukunft, Vermutung</td></tr>
+<tr><td>Konjunktiv II</td><td>würde + Infinitiv / wäre / hätte</td><td>ich würde spielen</td><td>Wunsch, Irreales, Höflichkeit</td></tr></tbody></table><h2 class="section">Übung 1: Tabelle: Verbformen ergänzen</h2><p class="instr">Ergänze die fehlenden Formen in der Tabelle.</p><table><thead><tr><th>Infinitiv</th><th>Präsens (er/sie)</th><th>Perfekt (er/sie)</th><th>Futur I (er/sie)</th></tr></thead><tbody><tr><td>spielen</td><td>spielt</td><td><input type="text" class="blank" style="width:100%;" data-ans="hat gespielt"></td><td><input type="text" class="blank" style="width:100%;" data-ans="wird spielen"></td></tr><tr><td>gehen</td><td><input type="text" class="blank" style="width:100%;" data-ans="geht"></td><td>ist gegangen</td><td><input type="text" class="blank" style="width:100%;" data-ans="wird gehen"></td></tr><tr><td>machen</td><td><input type="text" class="blank" style="width:100%;" data-ans="macht"></td><td><input type="text" class="blank" style="width:100%;" data-ans="hat gemacht"></td><td>wird machen</td></tr><tr><td>essen</td><td>isst</td><td><input type="text" class="blank" style="width:100%;" data-ans="hat gegessen"></td><td><input type="text" class="blank" style="width:100%;" data-ans="wird essen"></td></tr><tr><td>fahren</td><td><input type="text" class="blank" style="width:100%;" data-ans="fährt"></td><td>ist gefahren</td><td><input type="text" class="blank" style="width:100%;" data-ans="wird fahren"></td></tr><tr><td>haben</td><td><input type="text" class="blank" style="width:100%;" data-ans="hat"></td><td><input type="text" class="blank" style="width:100%;" data-ans="hat gehabt"></td><td><input type="text" class="blank" style="width:100%;" data-ans="wird haben"></td></tr><tr><td>sein</td><td><input type="text" class="blank" style="width:100%;" data-ans="ist"></td><td><input type="text" class="blank" style="width:100%;" data-ans="ist gewesen"></td><td><input type="text" class="blank" style="width:100%;" data-ans="wird sein"></td></tr></tbody></table><h2 class="section">Übung 2: Verbtraining</h2><p class="instr">Setze die Verben in Klammern in die angegebene Zeitform.</p><div class="item"><p class="q"><b>1.</b>Ich <input type="text" class="blank" style="width:100px;" data-ans="lerne"> (lernen, Präsens) jeden Tag Deutsch.</p></div><div class="item"><p class="q"><b>2.</b>Gestern <input type="text" class="blank" style="width:100px;" data-ans="sind"> wir ins Kino <input type="text" class="blank" style="width:100px;" data-ans="gegangen"> (gehen, Perfekt).</p></div><div class="item"><p class="q"><b>3.</b>Nächstes Jahr <input type="text" class="blank" style="width:100px;" data-ans="werde"> ich nach Deutschland <input type="text" class="blank" style="width:100px;" data-ans="fahren"> (fahren, Futur I).</p></div><div class="item"><p class="q"><b>4.</b>Wenn ich Zeit hätte, <input type="text" class="blank" style="width:100px;" data-ans="würde"> ich mehr Sport <input type="text" class="blank" style="width:100px;" data-ans="machen"> (machen, Konjunktiv II).</p></div><div class="item"><p class="q"><b>5.</b>Meine Eltern <input type="text" class="blank" style="width:100px;" data-ans="arbeiten"> (arbeiten, Präsens) in einem Büro.</p></div><div class="item"><p class="q"><b>6.</b>Letztes Wochenende <input type="text" class="blank" style="width:100px;" data-ans="habe"> ich ein Buch <input type="text" class="blank" style="width:100px;" data-ans="gelesen"> (lesen, Perfekt).</p></div><div class="item"><p class="q"><b>7.</b>An deiner Stelle <input type="text" class="blank" style="width:100px;" data-ans="würde"> ich anders <input type="text" class="blank" style="width:100px;" data-ans="handeln"> (handeln, Konjunktiv II).</p></div><div class="item"><p class="q"><b>8.</b>Morgen <input type="text" class="blank" style="width:100px;" data-ans="wird"> es wahrscheinlich <input type="text" class="blank" style="width:100px;" data-ans="regnen"> (regnen, Futur I).</p></div><h2 class="section">Übung 3: Zeitform wechseln</h2><p class="instr">Schreibe die Sätze in der angegebenen Zeitform um.</p><div class="item"><p class="q"><b>1.</b> Ich spiele Fußball. → Perfekt:</p><input type="text" class="blank" style="width:100%;display:block;" data-ans="Ich habe Fußball gespielt."></div><div class="item"><p class="q"><b>2.</b> Wir besuchen unsere Großeltern. → Futur I:</p><input type="text" class="blank" style="width:100%;display:block;" data-ans="Wir werden unsere Großeltern besuchen."></div><div class="item"><p class="q"><b>3.</b> Sie kauft ein neues Kleid. → Konjunktiv II (Ich wünschte, sie …):</p><input type="text" class="blank" style="width:100%;display:block;" data-ans="Ich wünschte, sie würde ein neues Kleid kaufen."></div><div class="item"><p class="q"><b>4.</b> Er hat seine Hausaufgaben gemacht. → Präsens:</p><input type="text" class="blank" style="width:100%;display:block;" data-ans="Er macht seine Hausaufgaben."></div><div class="item"><p class="q"><b>5.</b> Ich werde einen Kuchen backen. → Präsens:</p><input type="text" class="blank" style="width:100%;display:block;" data-ans="Ich backe einen Kuchen."></div><h2 class="section">Übung 4: Mini-Geschichten</h2><p class="instr">Ergänze die Mini-Geschichte mit den passenden Zeitformen.</p><div class="item"><p><b>Ein Ausflug</b><br>Am Samstag <input type="text" class="blank" style="width:110px;" data-ans="bin"> (1 – Perfekt: aufstehen) ich früh auf. Normalerweise <input type="text" class="blank" style="width:110px;" data-ans="schlafe"> (2 – Präsens: schlafen) ich am Wochenende lange, aber diesmal <input type="text" class="blank" style="width:110px;" data-ans="wollte"> (3 – Perfekt: wollen) ich mit meiner Familie einen Ausflug machen. Wir <input type="text" class="blank" style="width:110px;" data-ans="sind"> (4 – Perfekt: fahren) zu einem See und <input type="text" class="blank" style="width:110px;" data-ans="haben"> (5 – Perfekt: schwimmen). Nächstes Jahr <input type="text" class="blank" style="width:110px;" data-ans="werden"> (6 – Futur I: wiederkommen) wir bestimmt. Wenn das Wetter besser gewesen wäre, <input type="text" class="blank" style="width:110px;" data-ans="wären"> (7 – Konjunktiv II: bleiben) wir noch länger.</p><details class="model"><summary>Musterlösung anzeigen</summary><div class="sol">bin aufgestanden / schlafe / wollte / sind gefahren / haben geschwommen / werden wiederkommen / wären geblieben</div></details></div><h2 class="section">Übung 5: Leserbrief ergänzen</h2><p class="instr">Ergänze den kurzen Leserbriefauszug mit den passenden Zeitformen. Nutze mindestens einmal Präsens, Perfekt, Futur I und Konjunktiv II.</p><div class="item"><p><b>Liebe Redaktion,</b><br>ich <input type="text" class="blank" style="width:110px;" data-ans="finde"> (finden, Präsens) das Thema „Handys in der Schule“ sehr wichtig. Letzte Woche <input type="text" class="blank" style="width:110px;" data-ans="haben"> wir in der Klasse darüber <input type="text" class="blank" style="width:110px;" data-ans="diskutiert"> (diskutieren, Perfekt). Viele Schüler <input type="text" class="blank" style="width:110px;" data-ans="sagen"> (sagen, Präsens), dass Handys nützlich sind. Ich glaube, dass die Schule bald eine neue Regel <input type="text" class="blank" style="width:110px;" data-ans="einführen wird|wird einführen"> (einführen, Futur I). Wenn ich entscheiden könnte, <input type="text" class="blank" style="width:110px;" data-ans="würde"> ich Handys nur in den Pausen <input type="text" class="blank" style="width:110px;" data-ans="erlauben"> (erlauben, Konjunktiv II).<br>Mit freundlichen Grüßen</p></div>
+<div class="check-toolbar">
+  <button onclick="window.print()">🖨️ Drucken / PDF</button>
+  <button class="check" onclick="checkAnswers('Arbeitsblatt 4 – Zeitformen')">✅ Antworten überprüfen</button>
+</div>
+<div class="page-nav">
+    <span><a href="arbeitsblatt-3-inversion.html">← Inversion</a></span>
+    <span><a href="arbeitsblatt-5-grammatik-mix.html">Grammatik-Mix →</a></span>
+  </div>
+<p class="footer">Deutsch als Fremdsprache – Zeitformen – Arbeitsblatt 4/6</p>
+<script>
+const GOOGLE_SCRIPT_URL = "PASTE_DEINE_GOOGLE_APPS_SCRIPT_URL_HIER";
+
+function checkAnswers(worksheetName) {
+  let correct = 0, total = 0;
+
+  document.querySelectorAll("input.blank[data-ans]").forEach((inp) => {
+    total++;
+    const accepted = inp.dataset.ans.split("|").map((a) => normalize(a));
+    const val = normalize(inp.value);
+    inp.classList.remove("correct", "incorrect");
+    if (val && accepted.includes(val)) { inp.classList.add("correct"); correct++; }
+    else { inp.classList.add("incorrect"); }
+  });
+
+  const groups = {};
+  document.querySelectorAll('input[type="radio"][name]').forEach((r) => {
+    (groups[r.name] = groups[r.name] || []).push(r);
+  });
+  Object.values(groups).forEach((group) => {
+    const correctRadio = group.find((r) => r.dataset.correct === "true");
+    if (!correctRadio) return;
+    total++;
+    group.forEach((r) => r.parentElement.classList.remove("correct", "incorrect"));
+    const chosen = group.find((r) => r.checked);
+    if (chosen === correctRadio) { correctRadio.parentElement.classList.add("correct"); correct++; }
+    else if (chosen) { chosen.parentElement.classList.add("incorrect"); }
+  });
+
+  const bar = document.getElementById("score-bar");
+  if (bar) {
+    bar.style.display = "block";
+    bar.textContent = total > 0
+      ? `Ergebnis: ${correct} von ${total} automatisch prüfbaren Aufgaben richtig. (Offene Schreibaufgaben bitte mit den Musterlösungen vergleichen oder von der Lehrperson korrigieren lassen.)`
+      : `Diese Übungen sind offene Schreibaufgaben – nutze die Musterlösungen zum Vergleichen.`;
+    bar.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  const nameInput = document.getElementById("student-name");
+  const klasseInput = document.getElementById("student-klasse");
+  const name = nameInput ? nameInput.value.trim() : "";
+  const klasse = klasseInput ? klasseInput.value.trim() : "";
+
+  if (!name) {
+    alert("Bitte trage zuerst deinen Namen ein, bevor du überprüfst.");
+    if (nameInput) nameInput.focus();
+    return;
+  }
+
+  sendToSheet({ name, klasse, worksheet: worksheetName, correct, total, timestamp: new Date().toISOString() });
+}
+
+function normalize(s) {
+  return String(s).trim().toLowerCase().replace(/\s+/g, " ").replace(/[.,;!?]+$/, "");
+}
+
+function sendToSheet(data) {
+  if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.indexOf("PASTE_DEINE") !== -1) {
+    console.warn("Google-Sheet-URL nicht konfiguriert – Ergebnis wird nur lokal angezeigt.");
+    return;
+  }
+  fetch(GOOGLE_SCRIPT_URL, {
+    method: "POST", mode: "no-cors",
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    body: JSON.stringify(data),
+  }).catch((err) => console.error("Fehler beim Speichern im Google Sheet:", err));
+}
+</script>
+</body>
+</html>

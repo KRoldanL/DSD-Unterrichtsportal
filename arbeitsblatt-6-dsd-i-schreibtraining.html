@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arbeitsblatt 6 – DSD-I-Schreibtraining</title>
+<style>
+:root {
+  --primary: #1F4E78;
+  --accent: #2E7D32;
+  --light: #EAF1F8;
+  --lightAccent: #EAF5EA;
+  --border: #BFBFBF;
+  --text: #222;
+  --ok: #2E7D32;
+  --ok-bg: #EAF5EA;
+  --bad: #C0392B;
+  --bad-bg: #FBEAE8;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: "Segoe UI", "Calibri", Arial, sans-serif;
+  color: var(--text);
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 24px 80px;
+  line-height: 1.5;
+  background: #fff;
+}
+h1 { color: var(--primary); font-size: 2rem; margin-bottom: 4px; }
+.subtitle { font-style: italic; color: #555; border-bottom: 3px solid var(--primary); padding-bottom: 14px; margin-bottom: 20px; }
+.meta { display: flex; flex-wrap: wrap; gap: 24px; margin-bottom: 26px; font-size: 0.95rem; }
+.meta label { font-weight: 600; margin-right: 6px; }
+.meta input[type=text] { border: none; border-bottom: 1px solid #999; background: transparent; padding: 2px 4px; min-width: 160px; font-size: 0.95rem; }
+#score-bar {
+  display: none;
+  background: #FFF9E6; border: 1.5px solid #E0B400; border-radius: 6px;
+  padding: 10px 14px; margin-bottom: 20px; font-weight: 600; font-size: 0.95rem;
+}
+h2.section {
+  background: var(--light);
+  color: var(--primary);
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  margin-top: 34px;
+  margin-bottom: 10px;
+}
+.instr { font-style: italic; color: #444; margin-bottom: 14px; }
+.box {
+  background: var(--light);
+  border: 1.5px solid var(--primary);
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+}
+.box.accent { background: var(--lightAccent); border-color: var(--accent); }
+.box p { margin: 4px 0; }
+.box p.title { font-weight: 700; margin-bottom: 8px; }
+table { border-collapse: collapse; width: 100%; margin-bottom: 18px; font-size: 0.95rem; }
+th, td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+th { background: var(--primary); color: #fff; }
+.item { margin-bottom: 14px; }
+.item .q { font-weight: 500; }
+.item .q b { margin-right: 4px; }
+input.blank {
+  border: none;
+  border-bottom: 1.5px solid #999;
+  background: transparent;
+  padding: 3px 4px;
+  font-size: 1rem;
+  font-family: inherit;
+  min-width: 90px;
+}
+input.blank.correct { border-bottom: 2px solid var(--ok); background: var(--ok-bg); color: var(--ok); font-weight: 600; }
+input.blank.incorrect { border-bottom: 2px solid var(--bad); background: var(--bad-bg); color: var(--bad); font-weight: 600; }
+input.fill-line {
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1.5px solid #999;
+  background: transparent;
+  padding: 6px 4px;
+  font-size: 1rem;
+  font-family: inherit;
+  margin-top: 4px;
+}
+textarea {
+  width: 100%;
+  border: 1.5px solid var(--border);
+  border-radius: 4px;
+  padding: 10px;
+  font-family: inherit;
+  font-size: 1rem;
+  resize: vertical;
+  margin-top: 4px;
+}
+.checklist label { display: block; margin-bottom: 6px; cursor: pointer; }
+label.radio-opt { margin-right: 16px; padding: 3px 6px; border-radius: 4px; border: 1.5px solid transparent; }
+label.radio-opt.correct { border-color: var(--ok); background: var(--ok-bg); color: var(--ok); font-weight: 600; }
+label.radio-opt.incorrect { border-color: var(--bad); background: var(--bad-bg); color: var(--bad); font-weight: 600; }
+details.model { margin: 6px 0 0; font-size: 0.9rem; }
+details.model summary { cursor: pointer; color: var(--primary); }
+details.model .sol { margin-top: 6px; padding: 8px 10px; background: var(--lightAccent); border-radius: 4px; }
+.check-toolbar { text-align: right; margin: 18px 0 6px; }
+.check-toolbar button {
+  background: var(--primary); color: #fff; border: none; padding: 8px 16px;
+  border-radius: 4px; cursor: pointer; font-size: 0.9rem; margin-left: 8px;
+}
+.check-toolbar button.check { background: var(--accent); }
+.check-toolbar button:hover { opacity: 0.9; }
+.footer { margin-top: 50px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 0.8rem; color: #888; font-style: italic; }
+.page-nav { display: flex; justify-content: space-between; margin-top: 26px; font-size: 0.9rem; }
+.page-nav a { color: var(--primary); text-decoration: none; font-weight: 600; }
+.page-nav a:hover { text-decoration: underline; }
+@media print {
+  .check-toolbar, #score-bar { display: none; }
+  body { padding: 0; }
+  input.blank, input.fill-line { border-bottom: 1px solid #000; }
+}
+</style>
+</head>
+<body>
+<h1>Arbeitsblatt 6 – DSD-I-Schreibtraining</h1>
+<p class="subtitle">Schrittweise Vorbereitung auf den Leserbrief | Niveau A2/A2-B1</p>
+<div class="meta">
+  <div><label>Name:</label><input type="text" id="student-name" class="fill-line" style="display:inline;width:200px;" placeholder="Pflichtfeld für Überprüfung"></div>
+  <div><label>Klasse:</label><input type="text" id="student-klasse" class="fill-line" style="display:inline;width:120px;"></div>
+  <div><label>Datum:</label><input type="text" class="fill-line" style="display:inline;width:120px;"></div>
+</div>
+<div id="score-bar"></div>
+<div class="box"><p class="title">Was lernst du heute?</p>
+<p>• Meinung ausdrücken   • Argumente formulieren   • Beispiele geben</p>
+<p>• Konnektoren gezielt einsetzen   • Abwechslungsreiche Satzanfänge verwenden</p>
+<p>• Zeitformen passend wählen</p></div><h2 class="section">Übung 1: Meinung ausdrücken</h2><div class="box accent"><p class="title">Redemittel:</p>
+<p>Ich bin der Meinung, dass … / Meiner Meinung nach … / Ich finde/denke, dass … / Ich glaube, dass …</p></div><p class="instr">Formuliere deine Meinung zu jedem Thema mit einem anderen Redemittel. (Frei, wird von der Lehrperson korrigiert.)</p><div class="item"><p class="q"><b>1.</b> Thema: Handys in der Schule</p><input type="text" class="fill-line"></div><div class="item"><p class="q"><b>2.</b> Thema: Hausaufgaben am Wochenende</p><input type="text" class="fill-line"></div><div class="item"><p class="q"><b>3.</b> Thema: Schuluniformen</p><input type="text" class="fill-line"></div><h2 class="section">Übung 2: Argumente formulieren</h2><div class="box accent"><p class="title">Redemittel:</p>
+<p>Ein wichtiges Argument dafür/dagegen ist, dass … / Erstens … Zweitens … Außerdem … / Ein weiterer Grund ist, dass …</p></div><p class="instr">Sammle je 2 Argumente dafür und dagegen zum Thema „Handys in der Schule“. (Frei, wird von der Lehrperson korrigiert.)</p><p><b>Dafür:</b></p><textarea rows="2"></textarea><p><b>Dagegen:</b></p><textarea rows="2"></textarea><h2 class="section">Übung 3: Beispiele geben</h2><div class="box accent"><p class="title">Redemittel:</p>
+<p>Zum Beispiel … / Ein Beispiel dafür ist … / So kann man zum Beispiel sehen, dass … / Das zeigt sich zum Beispiel daran, dass …</p></div><p class="instr">Ergänze zu jedem Argument ein passendes Beispiel. (Frei, wird von der Lehrperson korrigiert.)</p><div class="item"><p class="q"><b>1.</b> Argument: Handys lenken vom Unterricht ab. Beispiel:</p><input type="text" class="fill-line"></div><div class="item"><p class="q"><b>2.</b> Argument: Handys können beim Lernen helfen. Beispiel:</p><input type="text" class="fill-line"></div><h2 class="section">Übung 4: Konnektoren gezielt einsetzen</h2><p class="instr">Verbinde die Sätze mit einem passenden Konnektor (weil, obwohl, dass, trotzdem, wenn …), um deine Argumentation flüssiger zu machen. Vergleiche mit der Musterlösung.</p><div class="item"><p class="q"><b>1.</b>Ich bin gegen Handys im Unterricht. Sie lenken ab.</p><input type="text" class="fill-line"><details class="model"><summary>Musterlösung anzeigen</summary><div class="sol">Ich bin gegen Handys im Unterricht, weil sie ablenken.</div></details></div><div class="item"><p class="q"><b>2.</b>Manche Schüler sind dafür. Handys können nützlich sein.</p><input type="text" class="fill-line"><details class="model"><summary>Musterlösung anzeigen</summary><div class="sol">Manche Schüler sind dafür, weil Handys nützlich sein können.</div></details></div><div class="item"><p class="q"><b>3.</b>Handys sollten erlaubt sein. Man benutzt sie nur in der Pause.</p><input type="text" class="fill-line"><details class="model"><summary>Musterlösung anzeigen</summary><div class="sol">Handys sollten erlaubt sein, wenn man sie nur in der Pause benutzt.</div></details></div><h2 class="section">Übung 5: Abwechslungsreiche Satzanfänge verwenden</h2><div class="box accent"><p class="title">Statt immer mit „Ich“ zu beginnen, nutze:</p>
+<p>Meiner Meinung nach … / Aus meiner Sicht … / Zunächst … / Außerdem … / Zum Schluss … / Abschließend …</p></div><p class="instr">Schreibe 4 Sätze zum Thema „Schuluniformen“ – jeder Satz beginnt anders (nicht mit „Ich“). (Frei, wird von der Lehrperson korrigiert.)</p><textarea rows="4"></textarea><h2 class="section">Übung 6: Zeitformen passend wählen</h2><div class="box"><p class="title">Im Leserbrief brauchst du meistens: Präsens (Meinung, Fakten), Perfekt (eigene Erfahrung), Futur I (Vorschlag/Zukunft), Konjunktiv II (Wunsch: Ich wünschte mir, dass …/Es wäre besser, wenn …)</p></div><p class="instr">Ergänze die passenden Zeitformen im Mini-Absatz.</p><div class="item"><p>In unserer Klasse <input type="text" class="blank" style="width:110px;" data-ans="diskutieren"> (1 – Präsens: diskutieren) wir oft über Handys. Letzte Woche <input type="text" class="blank" style="width:110px;" data-ans="haben"> wir eine Umfrage <input type="text" class="blank" style="width:110px;" data-ans="gemacht"> (2 – Perfekt: machen). Ich glaube, dass die Schule bald eine Regel <input type="text" class="blank" style="width:110px;" data-ans="einführen wird|wird einführen"> (3 – Futur I: einführen). Es <input type="text" class="blank" style="width:110px;" data-ans="wäre"> (4 – Konjunktiv II: sein) besser, wenn Schüler mitentscheiden könnten.</p></div><h2 class="section">Übung 7: Jetzt bist du dran: dein Leserbrief</h2><p class="instr">Schreibe nun einen vollständigen Leserbrief (mind. 120 Wörter) zum Thema „Sollen Handys in der Schule erlaubt sein?“. Nutze: Meinung, mindestens 2 Argumente mit Beispielen, mindestens 3 verschiedene Konnektoren, abwechslungsreiche Satzanfänge und mindestens 3 verschiedene Zeitformen. (Frei, wird von der Lehrperson korrigiert – die Checkliste ist zur Selbstkontrolle.)</p><div class="checklist"><label><input type="checkbox"> Anrede und Einleitung</label>
+<label><input type="checkbox"> Eigene Meinung klar formuliert</label>
+<label><input type="checkbox"> Mind. 2 Argumente mit Beispielen</label>
+<label><input type="checkbox"> Mind. 3 verschiedene Konnektoren</label>
+<label><input type="checkbox"> Abwechslungsreiche Satzanfänge</label>
+<label><input type="checkbox"> Mind. 3 verschiedene Zeitformen</label>
+<label><input type="checkbox"> Schlusssatz und Grußformel</label></div><textarea rows="14"></textarea>
+<div class="check-toolbar">
+  <button onclick="window.print()">🖨️ Drucken / PDF</button>
+  <button class="check" onclick="checkAnswers('Arbeitsblatt 6 – DSD-I-Schreibtraining')">✅ Antworten überprüfen</button>
+</div>
+<div class="page-nav">
+    <span><a href="arbeitsblatt-5-grammatik-mix.html">← Grammatik-Mix</a></span>
+    <span></span>
+  </div>
+<p class="footer">Deutsch als Fremdsprache – DSD-I-Schreibtraining – Arbeitsblatt 6/6</p>
+<script>
+const GOOGLE_SCRIPT_URL = "PASTE_DEINE_GOOGLE_APPS_SCRIPT_URL_HIER";
+
+function checkAnswers(worksheetName) {
+  let correct = 0, total = 0;
+
+  document.querySelectorAll("input.blank[data-ans]").forEach((inp) => {
+    total++;
+    const accepted = inp.dataset.ans.split("|").map((a) => normalize(a));
+    const val = normalize(inp.value);
+    inp.classList.remove("correct", "incorrect");
+    if (val && accepted.includes(val)) { inp.classList.add("correct"); correct++; }
+    else { inp.classList.add("incorrect"); }
+  });
+
+  const groups = {};
+  document.querySelectorAll('input[type="radio"][name]').forEach((r) => {
+    (groups[r.name] = groups[r.name] || []).push(r);
+  });
+  Object.values(groups).forEach((group) => {
+    const correctRadio = group.find((r) => r.dataset.correct === "true");
+    if (!correctRadio) return;
+    total++;
+    group.forEach((r) => r.parentElement.classList.remove("correct", "incorrect"));
+    const chosen = group.find((r) => r.checked);
+    if (chosen === correctRadio) { correctRadio.parentElement.classList.add("correct"); correct++; }
+    else if (chosen) { chosen.parentElement.classList.add("incorrect"); }
+  });
+
+  const bar = document.getElementById("score-bar");
+  if (bar) {
+    bar.style.display = "block";
+    bar.textContent = total > 0
+      ? `Ergebnis: ${correct} von ${total} automatisch prüfbaren Aufgaben richtig. (Offene Schreibaufgaben bitte mit den Musterlösungen vergleichen oder von der Lehrperson korrigieren lassen.)`
+      : `Diese Übungen sind offene Schreibaufgaben – nutze die Musterlösungen zum Vergleichen.`;
+    bar.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  const nameInput = document.getElementById("student-name");
+  const klasseInput = document.getElementById("student-klasse");
+  const name = nameInput ? nameInput.value.trim() : "";
+  const klasse = klasseInput ? klasseInput.value.trim() : "";
+
+  if (!name) {
+    alert("Bitte trage zuerst deinen Namen ein, bevor du überprüfst.");
+    if (nameInput) nameInput.focus();
+    return;
+  }
+
+  sendToSheet({ name, klasse, worksheet: worksheetName, correct, total, timestamp: new Date().toISOString() });
+}
+
+function normalize(s) {
+  return String(s).trim().toLowerCase().replace(/\s+/g, " ").replace(/[.,;!?]+$/, "");
+}
+
+function sendToSheet(data) {
+  if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.indexOf("PASTE_DEINE") !== -1) {
+    console.warn("Google-Sheet-URL nicht konfiguriert – Ergebnis wird nur lokal angezeigt.");
+    return;
+  }
+  fetch(GOOGLE_SCRIPT_URL, {
+    method: "POST", mode: "no-cors",
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    body: JSON.stringify(data),
+  }).catch((err) => console.error("Fehler beim Speichern im Google Sheet:", err));
+}
+</script>
+</body>
+</html>
